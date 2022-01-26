@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Meta is the information that will not be shown on the screen -->
+	<!-- author: The name of the webpage -->
+	<meta name="author" content="Banjibear">
+	<!-- Refreshes the webpage every x seconds: 60 for the surrent case -->
+	<meta name="refresh" content="60">
+	<!-- Setting the viewport to make your website look good on all devices -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> Banjibear - Resume </title>	<!-- Name or the tile shown on the tab -->
+	<style>
+
+	body {
+		background-color: white;
+		color: black;
+	}
+
+	h1, h2, h3, h4, h5{text-align: center;}
+	/* I have specified all text size in each line, I choose to use the numberings for personal references */
+	/* Please also read the comments written on line 191, or see the first line in the <body> tag */
+
+	.b1{
+		position: absolute;
+		bottom: 25px;
+		right: 5px;
+		width: 50px;
+		height: 50px;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		border-radius: 50%;
+		background-color: white; 
+		border: 2px solid transparent;
+	}
+	.b1:hover {
+		/* change color */
+		background-color: #e7e7e7;
+		color: white;
+		/* hover shadow */
+		box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+	}
+	.b1:active {
+		background-color: #00000;
+		box-shadow: 0 5px #666;
+		transform: translateY(4px);
+	}
+
+	.downloadButton{
+		position: absolute;
+		bottom: 25px;
+		right: 60px;
+		width: 50px;
+		height: 50px;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		border-radius: 50%;
+		background-color: white; 
+		border: 2px solid transparent;
+	}
+	.downloadButton:hover {
+		background-color: #e7e7e7;
+		color: white;
+		box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+	}
+	.downloadButton:active {
+		background-color: #00000;
+		box-shadow: 0 5px #666;
+		transform: translateY(4px);
+	}
+
+	.b2{
+		position: absolute;
+		bottom: 25px;
+		right: 115px;
+		width: 50px;
+		height: 50px;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		border-radius: 50%;
+		background-color: white; 
+		border: 2px solid transparent;
+	}
+	.b2:hover {
+		/* change color */
+		background-color: #e7e7e7;
+		color: white;
+		/* hover shadow */
+		box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+	}
+	.b2:active {
+		background-color: #00000;
+		box-shadow: 0 5px #666;
+		transform: translateY(4px);
+	}
+
+	/*.sideFooter{
+		position: fixed;
+		left: 0;
+		top:  0;
+		height: 100%;
+		background-color: red;
+	} 
+	Not functioning */
+
+	/*@media(max-width: 300px){
+		section {
+			-webkit-flex-direction: column;
+			flex-direction: column;
+		}
+	}*/
+
+	.bottomFooter{
+		position: fixed;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+	}
+
+	.darkTheme {
+		background-color: black; /* powderblue */
+		color: white;
+	}
+
+	.bottomright {
+		position: absolute;
+		bottom: -15px;
+		right: 5px;
+		color: grey;
+	}
+
+	/* The sidebar */
+	.sidebar {
+		height: 100%; 
+		width: 0; 
+		position: fixed; 
+		z-index: 1; /* Stay on top */
+		top: 0;
+		left: 0;
+		background-color: black;
+		overflow-x: hidden; 
+		padding-top: 60px; 
+		transition: 0.5s; 
+	}
+	/* The sidebar links */
+	.sidebar a {
+		padding: 8px 8px 8px 32px;
+		text-decoration: none;
+		font-size: 25px;
+		color: #818181;
+		display: block;
+		transition: 0.3s;
+	}
+	.sidebar a:hover {
+		color: #f1f1f1;
+	}
+	.sidebar .closeButton {
+		position: absolute;
+		top: 0;
+		right: 25px;
+		font-size: 36px;
+		margin-left: 50px;
+	}
+	.openButton {
+		font-size: 20px;
+		cursor: pointer;
+		background-color: grey;
+		color: white;
+		padding: 10px 15px;
+		border: none;
+	}
+	.openButton:hover {
+		background-color: #444;
+	}
+	/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+	#main {
+		transition: margin-left .5s; /* If you want a transition effect */
+		padding: 20px;
+	}
+	/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+	@media screen and (max-height: 450px) {
+		.sidebar {padding-top: 15px;}
+		.sidebar a {font-size: 18px;}
+	}
+	</style>
+</head>
+<body>
+
+	<!-- Note:
+				As specified in above,
+				/* I have specified all text size in each line, I choose to use the numberings for personal references */
+				thus, although HTML only supports h1 to h6, there exists up to h10+ in this source code
+				for personal reference and easier to locate and modify 
+	-->
+
+	<div id="mySidebar" class="sidebar">
+		<a href="javascript:void(0)" class="closeButton" onclick="closeNav()">&times;</a>
+		<a href="AboutMe.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">About Me</b> </a>
+		<a href="Resume.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand"><ion-icon name="document-attach-outline"></ion-icon> Resume</b> </a>
+		<a href="Projects.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Projects</b> </a>
+		<a href="Albums.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Albums</b> </a>
+		<a href="Foodie.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Foodie</b> </a>
+		<a href="Contact.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Contact</b> </a>
+	</div>
+
+	<div id="main">
+		<div style="text-align:left">
+			<button class="openButton" onclick="openNav()">&#9776;</button>
+		</div>
+	</div>
+
+	<h1 style="margin-top: -40px; font: 36.0px Helvetica; -webkit-text-stroke: #000000">CHEN Yi pu</h1>
+	<h2  style=" font: 16.5px Helvetica; -webkit-text-stroke: #000000">5/F BLK A 556-558 CANTON RD  &#8226;  KOWLOON  &#8226;  (852) 9061-4017  &#8226;  <a href="mailto:19084858d@connect.polyu.hk" style="color: grey">19084858d@connect.polyu.hk</a></h2>
+
+	<hr style="width:60%">
+
+	<h3 style=" font: 22.5px Helvetica; -webkit-text-stroke: #000000">Undergraduate Software Engineer</h3>
+	<h3 style=" margin: 0.0px 0.0px 0.0px 0.0px; line-height: 0.5cm; font: 18px Helvetica;"><i>Experience in Artificial Intelligence and Mobile Application Development</i></h3>
+	<h3 style=" margin: 0.0px 0.0px 0.0px 0.0px; line-height: 0.5cm; font: 18px Helvetica;"><i>Efficiency communication and cooperation with teamwork</i></h3>
+	<h4 style=" font: 16.5px Helvetica;">Detail-oriented, Self-initiated and hardworking as well as capable of handling multitasks simultaneously,</h4>
+	<h5 style=" margin-top: -20.0px; line-height: 0.5cm; font: 16.5px Helvetica;">Software Engineering major with 4+ years of experience, Participates in projects and on-going research</h5>
+
+	<h6 style=" margin-left: 320px; font: 16.5px Helvetica;"><i>Key skills include:</i></h6>
+
+	<!-- Table content for the skills -->
+	<div style="margin-top: -20.0px; float: left; margin-left: 320px; font: Helvetica;">
+		<ul>
+			<li>Basic knowledge and implementation of Machine Learning</li>
+			<li>Linux and Unix system programming</li>
+			<li>Application UI design</li>
+		</ul>
+	</div>
+	<div style="margin-top: -20.0px; float: right; margin-right: 320px; font: Helvetica;">
+		<ul>
+			<li>Team collaboration and time management</li>
+			<li>Internal & External Communications</li>
+			<li>Proactive and willing to learn</li>
+			<li>Web/Mobile application design</li>
+		</ul>
+	</div>
+
+	<hr style="width:60%">
+
+	<h1 style="margin-top: 40.0px; font: 22.5px Helvetica; -webkit-text-stroke: #000000">PROFESSIONAL EXPERIENCE</h1>
+
+	<h7 style=" margin-left: 320px; font: 16.5px Helvetica;">Yoctol.ai, <i>Taipei, Taiwan.</i></h7><br>
+	<h8 style=" margin-left: 320px; font: 16.5px Helvetica;"><b>Internship</b> (January 2020 &#8594; February 2020)</h8><br>
+	<p style="margin-top: 0.0px; margin-left: 320px; margin-bottom: 0px; font: 16.5px Helvetica; max-width: 800px; min-width: 500px;">Belongs to the Team of Product Management. Responsible for debugging and performing Blackbox product testing. Exposed to product business flow and system evolution management</p>
+	<h9 style="margin-left: 320px; font: 16.5px Helvetica;"><i>Notable accomplishments:</i></h9><br>
+	<div style="margin-top: -10.0px; float: left; margin-left: 320px; font: 16.5px Helvetica;">
+		<ul>
+			<li>Provide daily testing review/quality feedbacks of the modified version of system.</li>
+			<li>Responsible for assuring the functionality of the released system.</li>
+		</ul>
+	</div>
+
+	<hr style="width:0%"><br>
+
+	<h1 style="margin-top: 40.0px; font: 22.5px Helvetica; -webkit-text-stroke: #000000">RELEVANT EXPERIENCE</h1>
+	<h10 style=" margin-left: 320px; font: 16.5px Helvetica;">Natural Language Processing Research, <i>The Hong Kong Polytechnic University. </i></h10><br>
+	<h11 style=" margin-left: 320px; font: 16.5px Helvetica;"><b>Student Assistant</b>  (November 2021 &#8594; Present)</h11><br>
+	<p style="margin-top: 0.0px; margin-left: 320px; margin-bottom: 0px; font: 16.5px Helvetica; max-width: 800px; min-width: 500px;">Member of the development team. Aims to make Silicon Copéllia response and speaks affectively to other agents by dealing with the numbers produced during the affection/emotion processing process, which was done in the former work, and convert it into sentences by applying NLP.</p>
+	<h9 style="margin-left: 320px; font: 16.5px Helvetica;"><i>Accomplishments:</i></h9><br>
+	<div style="margin-top: -10.0px; float: left; margin-left: 320px; font: 16.5px Helvetica;">
+		<ul>
+			<li>Design and implement the model proposed by Prof. HOORN Johan</li>
+		</ul>
+	</div>
+
+	<hr style="width:0%"><br><hr style="width:0%">
+
+	<h12 style=" margin-left: 320px; font: 16.5px Helvetica;">Mobile Sensing Research, <i>The Hong Kong Polytechnic University. </i></h12><br>
+	<h13 style=" margin-left: 320px; font: 16.5px Helvetica;"><b>Student Assistant</b>  (November 2021 &#8594; Present)</h13><br>
+	<p style="margin-top: 0.0px; margin-left: 320px; margin-bottom: 0px; font: 16.5px Helvetica; max-width: 800px; min-width: 500px;">Testing and implement to develop a device-free acoustic sensing application.</p>
+	<h9 style="margin-left: 320px; font: 16.5px Helvetica;"><i>Accomplishments:</i></h9><br>
+	<div style="margin-top: -10.0px; float: left; margin-left: 320px; font: 16.5px Helvetica;">
+		<ul>
+			<li>Re-design and implement the old version of related work</li>
+		</ul>
+	</div>
+
+	<br>
+	<hr style="width:60%">
+
+	<h1 style="margin-top: 40.0px; font: 22.5px Helvetica; -webkit-text-stroke: #000000">PROGRAMMING LANGUAGES & SKILLS</h1>
+	<p style="margin-top: 0.0px; margin-left: 320px; margin-bottom: 0px; font: 16.5px Helvetica; max-width: 800px; min-width: 500px;">Artificial Intelligence &#8226; Web Development &#8226; Software Development &#8226; Mobile Computing &#8226; Leadership &#8226; C/C++ &#8226; Object Oriented Programming &#8226; Python &#8226; JAVA &#8226; Database &#8226; Object Oriented Programming</p>
+
+	<br>
+	<hr style="width:60%">
+
+	<h1 style="margin-top: 40.0px; font: 22.5px Helvetica; -webkit-text-stroke: #000000">LANGUAGES</h1>
+	<div style="margin-top: -10.0px; float: left; margin-left: 320px; font: 16.5px Helvetica;">
+		<ul>
+			<li>English – Professional working proficiency</li>
+			<li>Mandarin – Professional working proficiency</li>
+			<li>Russian – Elementary proficiency</li>
+		</ul>
+	</div>
+
+	<br>
+	<hr style="width:60%">
+
+	<h1 style="margin-top: 40.0px; font: 22.5px Helvetica; -webkit-text-stroke: #000000">EDUCATION & CREDENTIALS</h1>
+	<h14 style=" margin-left: 320px; font: 16.5px Helvetica;"><b>THE HONG KONG POLYTECHNIC UNIVERSITY </b></h14><br>
+	<h15 style=" margin-left: 320px; font: 16.5px Helvetica;">BROAD DISCIPLINE OF COMPUTING, (Aug 2019 &#8594; Present) </h15><br>
+
+	<br>
+
+	<h16 style=" margin-left: 320px; font: 16.5px Helvetica;"><b>Information Technology Skills </b></h16><br>
+	<h17 style=" margin-left: 320px; font: 16.5px Helvetica;">Microsoft Office Suite  &#8226;  Search Engine  &#8226;  Creating social media posts engaging with audiences</h17><br>
+
+	<div class="bottomFooter">
+		<button class="b1" style="font-size: 25px;" onclick="changeTheme()"><ion-icon name="contrast-outline"></ion-icon></button>
+		<a href="Resume.pdf" target="_blank" download="Resume">
+			<button class="downloadButton" style="font-size: 25px;"><ion-icon name="cloud-download-outline"></ion-icon></button>
+		</a>
+		<button class="b2" style="font-size: 25px;" onclick="window.location.href='index.html';"><ion-icon name="person-outline"></ion-icon></button>
+		<p class="bottomright">Last load: <span id="modified"></span></p>
+	</div>
+
+	
+	
+
+
+<script>
+
+	/* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
+	function openNav() {
+		document.getElementById("mySidebar").style.width = "250px";
+		document.getElementById("main").style.marginLeft = "250px";
+	}
+
+	/* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+	function closeNav() {
+		document.getElementById("mySidebar").style.width = "0";
+		document.getElementById("main").style.marginLeft = "0";
+	}
+
+	function changeTheme() {
+		var element = document.body;
+		element.classList.toggle("darkTheme");
+	}
+
+	document.getElementById("modified").innerHTML = document.lastModified;
+
+</script>
+
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>
+

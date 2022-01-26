@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Meta is the information that will not be shown on the screen -->
+  <!-- author: The name of the webpage -->
+  <meta name="author" content="Banjibear">
+  <!-- Refreshes the webpage every x seconds: 60 for the surrent case -->
+  <meta name="refresh" content="60">
+  <!-- Setting the viewport to make your website look good on all devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Banjibear - Contact </title> <!-- Name or the tile shown on the tab -->
+  <style>
+
+  body {
+    margin: 0;
+  }
+  .hero-image {
+    background-image: url("/images/mem.jpg");
+    background-color: #bbb;
+    height: 800px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+
+    opacity: 0.7; /* https://www.w3schools.com/css/css_image_transparency.asp */
+  }
+
+  h2{
+    color: black; 
+    font: 50.0px Bradley Hand;
+    position: absolute;
+    margin-left: 30%;
+    margin-top: 15%;
+  }
+
+  .containerBoxForInfo{
+    width: 80%;
+    height: 80%;
+    position: absolute;
+    margin-left: 10%;
+
+    border-style: solid;
+    border-color: white;  /* https://www.w3schools.com/css/css_border_color.asp */
+  }
+
+  /* Home button */
+  /* Using the same name in all Pages */
+  .b2{
+    position: absolute;
+    bottom: 25px;
+    right: 5px;
+    width: 50px;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: white; 
+    border: 2px solid transparent;
+  }
+  .b2:hover {
+    /* change color */
+    background-color: #e7e7e7;
+    color: white;
+    /* hover shadow */
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+  .b2:active {
+    background-color: #00000;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+  .bottomFooter{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
+
+  /* The sidebar */
+  .sidebar {
+    height: 100%; 
+    width: 0; 
+    position: fixed; 
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: white;
+    overflow-x: hidden; 
+    padding-top: 60px; 
+    transition: 0.5s; 
+  }
+  /* The sidebar links */
+  .sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  .sidebar a:hover {
+    color: black;
+  }
+  .sidebar .closeButton {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  .openButton {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: transparent;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+  }
+  .openButton:hover {
+    background-color: #444;
+  }
+  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+  #main {
+    transition: margin-left .5s; /* If you want a transition effect */
+    padding: 20px;
+  }
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+  }
+
+  .linkedinButton{
+    position: absolute;
+    top: 50%;
+    left: 23%;
+    width: 100px;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: transparent; 
+    border: 2px solid transparent;
+  }
+  .linkedinButton:hover {
+    /* change color */
+    background-color: #e7e7e7;
+    color: grey;
+    /* hover shadow */
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+  .linkedinButton:active {
+    background-color: #00000;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+  .githubButton{
+    position: absolute;
+    top: 50%;
+    left: 38%;
+    width: 100px;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: transparent; 
+    border: 2px solid transparent;
+  }
+  .githubButton:hover {
+    /* change color */
+    background-color: #e7e7e7;
+    color: grey;
+    /* hover shadow */
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+  .githubButton:active {
+    background-color: #00000;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+  .whatsappButton{
+    position: absolute;
+    top: 50%;
+    left: 53%;
+    width: 100px;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: transparent; 
+    border: 2px solid transparent;
+  }
+  .whatsappButton:hover {
+    /* change color */
+    background-color: #e7e7e7;
+    color: grey;
+    /* hover shadow */
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+  .whatsappButton:active {
+    background-color: #00000;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+  .wechatButton{
+    position: absolute;
+    top: 50%;
+    left: 68%;
+    width: 100px;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: transparent; 
+    border: 2px solid transparent;
+  }
+  .wechatButton:hover {
+    /* change color */
+    background-color: #e7e7e7;
+    color: grey;
+    /* hover shadow */
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+  .wechatButton:active {
+    background-color: #00000;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+  </style>
+</head>
+<body>
+
+  <div class="hero-image">
+    <div id="mySidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closeButton" onclick="closeNav()">&times;</a>
+      <a href="AboutMe.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">About Me</b> </a>
+      <a href="Resume.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Resume</b> </a>
+      <a href="Projects.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Projects</b> </a>
+      <a href="Albums.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Albums</b> </a>
+      <a href="Foodie.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Foodie</b> </a>
+      <a href="Contact.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand"><ion-icon name="call-outline"></ion-icon> Contact</b> </a>
+    </div>
+    <div id="main">
+      <div style="text-align:left">
+        <button class="openButton" onclick="openNav()">&#9776;</button>
+      </div>
+    </div>
+    <div class="containerBoxForInfo">
+      <h2>CHEN Yi pu (Tommy)</h2>
+      <hr style="margin-top: 23%; border: 2px solid black; width:60%">
+      <!-- https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_style_hr -->
+      <!-- https://www.w3schools.com/tags/tag_hr.asp -->
+      <a href="https://www.linkedin.com/in/yi-pu-chen-535040194" target="_blank">
+        <button class="linkedinButton" style="font-size: 50px;"><ion-icon name="logo-linkedin"></ion-icon></button>
+      </a>
+      <a href="https://github.com/BanjiBear" target="_blank">
+        <button class="githubButton" style="font-size: 50px;"><ion-icon name="logo-github"></ion-icon></button>
+      </a>
+      <a href="https://wa.me/85290614017" target="_blank">
+        <button class="whatsappButton" style="font-size: 50px;"><ion-icon name="logo-whatsapp"></ion-icon></button>
+        <!-- https://faq.whatsapp.com/iphone/how-to-link-to-whatsapp-from-a-different-app/?lang=zh_hk -->
+      </a>
+      <a href="https://msng.link/o/?https%3A%2F%2Fu.wechat.com%2FIEcWqbG5Wac59cARuJLPX1c=wc" target="_blank">
+        <button class="wechatButton" style="font-size: 50px;"><ion-icon name="logo-wechat"></ion-icon></button>
+      </a>
+    </div>
+  </div>
+
+  <div class="bottomFooter">
+    <button class="b2" style="font-size: 25px;" onclick="window.location.href='index.html';"><ion-icon name="person-outline"></ion-icon></button>
+  </div>  
+
+<script>
+
+  /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
+  function openNav() {
+    document.getElementById("mySidebar").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+  }
+
+  /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+  function closeNav() {
+    document.getElementById("mySidebar").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
+  }
+
+</script>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>
+
