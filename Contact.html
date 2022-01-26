@@ -11,13 +11,24 @@
   <title> Banjibear - Contact </title> <!-- Name or the tile shown on the tab -->
   <style>
 
-  body {
-    margin: 0;
+  html,body {
+    /* The following allows the background to be responsive on mobile phones */
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
   }
+
+  .textForMobile{
+  }
+  .hrForMobile{
+  }
+
   .hero-image {
-    background-image: url("/images/mem.jpg");
+    background-image: url("./images/mem.jpg");
     background-color: #bbb;
-    height: 800px;
+    height: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -129,6 +140,7 @@
   }
   /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
   @media screen and (max-height: 450px) {
+    /* For mobile phones: */
     .sidebar {padding-top: 15px;}
     .sidebar a {font-size: 18px;}
   }
@@ -236,6 +248,33 @@
     box-shadow: 0 5px #666;
     transform: translateY(4px);
   }
+
+  @media only screen and (max-width: 620px) {
+    /* For mobile phones: */
+    .textForMobile{
+      position: center;
+      font-size: 10vw;
+      top: 5vw;
+      left: -10vw;
+      margin-right: 10vw;
+    }
+    .linkedinButton{
+      top: 70vw;
+      left: 15vw;
+    }
+    .githubButton{
+      top: 70vw;
+      left: 40vw;
+    }
+    .wechatButton{
+      top: 100vw;;
+      left: 15vw;
+    }
+    .whatsappButton{
+      top: 100vw;
+      left: 40vw;
+    }
+  }
   </style>
 </head>
 <body>
@@ -245,9 +284,9 @@
       <a href="javascript:void(0)" class="closeButton" onclick="closeNav()">&times;</a>
       <a href="AboutMe.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">About Me</b> </a>
       <a href="Resume.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Resume</b> </a>
-      <a href="Projects.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Projects</b> </a>
+      <a href="" onclick="alert('Sorry! This pager is not available yet &#x1F625;');"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Projects</b> </a>
       <a href="Albums.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Albums</b> </a>
-      <a href="Foodie.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Foodie</b> </a>
+      <a href="" onclick="alert('Sorry! This pager is not available yet &#x1F625;');"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Foodie</b> </a>
       <a href="Contact.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand"><ion-icon name="call-outline"></ion-icon> Contact</b> </a>
     </div>
     <div id="main">
@@ -256,8 +295,7 @@
       </div>
     </div>
     <div class="containerBoxForInfo">
-      <h2>CHEN Yi pu (Tommy)</h2>
-      <hr style="margin-top: 23%; border: 2px solid black; width:60%">
+      <h2 class="textForMobile">CHEN Yi pu (Tommy)<hr class="textForMobile" style="top: 23%; border: 2px solid black;"></h2>
       <!-- https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_style_hr -->
       <!-- https://www.w3schools.com/tags/tag_hr.asp -->
       <a href="https://www.linkedin.com/in/yi-pu-chen-535040194" target="_blank">
