@@ -22,6 +22,12 @@
 
   .textForMobile{
   }
+  .icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+  }
 
   .hero-image {
     background-image: url("./images/mem.jpg");
@@ -257,6 +263,8 @@
       margin-right: 10vw;
     }
     .linkedinButton{
+      display:inline-block;
+      vertical-align:middle;
       top: 70vw;
       left: 0vw;
     }
@@ -297,23 +305,23 @@
       <!-- https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_style_hr -->
       <!-- https://www.w3schools.com/tags/tag_hr.asp -->
       <a href="https://www.linkedin.com/in/yi-pu-chen-535040194" target="_blank">
-        <button class="linkedinButton" style="font-size: 50px;"><ion-icon name="logo-linkedin"></ion-icon></button>
+        <button class="linkedinButton" style="font-size: 50px;"><i class="icon"><ion-icon name="logo-linkedin"></ion-icon></i></button>
       </a>
       <a href="https://github.com/BanjiBear" target="_blank">
-        <button class="githubButton" style="font-size: 50px;"><ion-icon name="logo-github"></ion-icon></button>
+        <button class="githubButton" style="font-size: 50px;"><i class="icon"><ion-icon name="logo-github"></ion-icon></i></button>
       </a>
       <a href="https://wa.me/85290614017" target="_blank">
-        <button class="whatsappButton" style="font-size: 50px;"><ion-icon name="logo-whatsapp"></ion-icon></button>
+        <button class="whatsappButton" style="font-size: 50px;"><i class="icon"><ion-icon name="logo-whatsapp"></ion-icon></i></button>
         <!-- https://faq.whatsapp.com/iphone/how-to-link-to-whatsapp-from-a-different-app/?lang=zh_hk -->
       </a>
       <a href="https://msng.link/o/?https%3A%2F%2Fu.wechat.com%2FIEcWqbG5Wac59cARuJLPX1c=wc" target="_blank">
-        <button class="wechatButton" style="font-size: 50px;"><ion-icon name="logo-wechat"></ion-icon></button>
+        <button class="wechatButton" style="font-size: 50px;"><i class="icon"><ion-icon name="logo-wechat"></ion-icon></i></button>
       </a>
     </div>
   </div>
 
   <div class="bottomFooter">
-    <button class="b2" style="font-size: 25px;" onclick="window.location.href='index.html';"><ion-icon name="person-outline" style="text-align: center;"></ion-icon></button>
+    <button class="b2" style="font-size: 25px;" onclick="window.location.href='index.html';"><ion-icon name="person-outline"></ion-icon></button>
   </div>  
 
 <script>
