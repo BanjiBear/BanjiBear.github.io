@@ -11,8 +11,22 @@
   <title> Banjibear - Albums </title> <!-- Name or the tile shown on the tab -->
   <style>
 
-  body{
+  html, body{
+    /* The following allows the background to be responsive on mobile phones */
+    width: 100%;
+    height: 100%;
     margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+  }
+  .icon {
+    /* Reference: https://stackoverflow.com/questions/53276676/icon-inside-button-not-centered-in-iphone */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+  }
+  .mobilePadding{
   }
 
   /* Home button */
@@ -27,7 +41,7 @@
     justify-content: center;
     cursor: pointer;
     border-radius: 50%;
-    background-color: transparent; 
+    background-color: white; 
     border: 2px solid transparent;
   }
   .b2:hover {
@@ -58,7 +72,7 @@
     z-index: 1; /* Stay on top */
     top: 0;
     left: 0;
-    background-color: transparent;
+    background-color: white;
     overflow-x: hidden; 
     padding-top: 60px; 
     transition: 0.5s; 
@@ -73,7 +87,7 @@
     transition: 0.3s;
   }
   .sidebar a:hover {
-    color: white;
+    color: black;
   }
   .sidebar .closeButton {
     position: absolute;
@@ -100,6 +114,7 @@
   }
   /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
   @media screen and (max-height: 450px) {
+    /* For mobile phones: */
     .sidebar {padding-top: 15px;}
     .sidebar a {font-size: 18px;}
   }
@@ -109,7 +124,7 @@
     background-attachment: fixed; /* html float fixed background */
     
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background-color: darkgrey;
     background-repeat: no-repeat;
     background-position: center;
@@ -135,6 +150,18 @@
     background-image: url("./Gallery/Taiwan.jpg");
   }
 
+  @media only screen and (max-width: 620px) {
+    /* For mobile phones: */
+    body{
+      background-image: url("./Gallery/Taiwan.jpg");
+      background-size: cover;
+    }
+    .verticalBars{
+      font: 7.5vw Bradley Hand;
+      text-align: center;
+      line-height: 100vh;
+    }
+  }
   </style>
 </head>
 <body>
@@ -143,13 +170,13 @@
     <a href="javascript:void(0)" class="closeButton" onclick="closeNav()">&times;</a>
     <a href="AboutMe.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">About Me</b> </a>
     <a href="Resume.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Resume</b> </a>
-    <a href="Projects.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Projects</b> </a>
+    <a href="" onclick="alert('Sorry! This pager is not available yet &#x1F625;');"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Projects</b> </a>
     <a href="Albums.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand"><ion-icon name="images-outline"></ion-icon> Albums</b> </a>
-    <a href="Foodie.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Foodie</b> </a>
+    <a href="" onclick="alert('Sorry! This pager is not available yet &#x1F625;');"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Foodie</b> </a>
     <a href="Contact.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Contact</b> </a>
   </div>
   <div id="main">
-    <div style="text-align:left">
+    <div style="text-align:left" class="mobilePadding">
       <button class="openButton" onclick="openNav()">&#9776;</button>
     </div>
   </div>
@@ -164,7 +191,7 @@
 
 
   <div class="bottomFooter">
-    <button class="b2" style="font-size: 25px;" onclick="window.location.href='index.html';"><ion-icon name="person-outline"></ion-icon></button>
+    <button class="b2" style="font-size: 25px;" onclick="window.location.href='index.html';"><i class="icon"><ion-icon name="person-outline"></ion-icon></i></button>
   </div>
 
 <script>
