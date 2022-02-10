@@ -67,7 +67,7 @@
     z-index: 1; /* Stay on top */
     top: 0;
     left: 0;
-    background-color: transparent;
+    background-color: black;
     overflow-x: hidden; 
     padding-top: 60px; 
     transition: 0.5s; 
@@ -115,9 +115,9 @@
 
   /* Project Container */
   .Project_Container{
-    margin-left: 10vw;
+    margin-left: 5vw;
     margin-top: 5vh;
-    width: 35vw;
+    width: 40vw;
     height: 50vh;
     border-style: solid;
     border-color: white;  /* https://www.w3schools.com/css/css_border_color.asp */
@@ -125,13 +125,20 @@
   .Project_Container:hover{
     border-style: solid;
     border-color: transparent;  /* https://www.w3schools.com/css/css_border_color.asp */
+    opacity: 0.3;
+  }
+  .containerFlex{
+    display:flex;
   }
   @media only screen and (max-width: 620px){
     .Project_Container{
       margin-left: 0;
       margin-top: 5vh;
       width: 100%;
-      height: 50vh;
+      height: 50%;
+    }
+    .containerFlex{
+      display:block;
     }
   }
 
@@ -154,14 +161,19 @@
     </div>
   </div>
 
-  <div class="Project_Container">
-    <img src="./images/Coppélia.jpg" width="100%">
+  <div class="containerFlex">
+    <div class="Project_Container">
+      <img src="./images/Coppelia.jpg" style="max-width: 100%; width:100%; height: 100%; background-size: contain;">
+    </div>
+    <div class="Project_Container">
+      <img src="./images/Todots.jpg" style="max-width: 100%; width:100%; height: 100%; background-size: contain;">
+    </div>
   </div>
-  <div class="Project_Container">
-  </div>
-  <div class="Project_Container">
-  </div>
-  <div class="Project_Container">
+  <div class="containerFlex">
+    <div class="Project_Container">
+    </div>
+    <div class="Project_Container">
+    </div>
   </div>
 
 
