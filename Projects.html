@@ -11,6 +11,17 @@
   <title> Banjibear - Projects </title> <!-- Name or the tile shown on the tab -->
   <style>
 
+  body{
+    background-color: black;
+  }
+  .icon {
+    /* Reference: https://stackoverflow.com/questions/53276676/icon-inside-button-not-centered-in-iphone */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+  }
+
   /* The following are the Constant Settings/Styles in all pages */
 
   /* Home button */
@@ -102,21 +113,27 @@
     .sidebar a {font-size: 18px;}
   }
 
-  /* Deprecated
-  // Project Container
+  /* Project Container */
   .Project_Container{
-    width: 30%;
-    height: 30%;
+    margin-left: 10vw;
+    margin-top: 5vh;
+    width: 35vw;
+    height: 50vh;
     border-style: solid;
-    border-color: white;  // https://www.w3schools.com/css/css_border_color.asp 
+    border-color: white;  /* https://www.w3schools.com/css/css_border_color.asp */
   }
   .Project_Container:hover{
-    width: 30%;
-    height: 30%;
     border-style: solid;
-    border-color: transparent;  // https://www.w3schools.com/css/css_border_color.asp 
+    border-color: transparent;  /* https://www.w3schools.com/css/css_border_color.asp */
   }
-  */
+  @media only screen and (max-width: 620px){
+    .Project_Container{
+      margin-left: 0;
+      margin-top: 5vh;
+      width: 100%;
+      height: 50vh;
+    }
+  }
 
   </style>
 </head>
@@ -137,8 +154,21 @@
     </div>
   </div>
 
+  <iframe class="Project_Container">
+  </iframe>
+  <iframe class="Project_Container">
+  </iframe>
+  <iframe class="Project_Container">
+  </iframe>
+  <iframe class="Project_Container">
+  </iframe>
+  <iframe class="Project_Container">
+  </iframe>
+  <iframe class="Project_Container">
+  </iframe>
+
   <div class="bottomFooter">
-    <button class="b2" style="font-size: 25px;" onclick="window.location.href='index.html';"><ion-icon name="person-outline"></ion-icon></button>
+    <button class="b2" style="font-size: 25px;" onclick="window.location.href='index.html';"><i class="icon"><ion-icon name="person-outline"></ion-icon></i></button>
   </div>  
 
 <script>
