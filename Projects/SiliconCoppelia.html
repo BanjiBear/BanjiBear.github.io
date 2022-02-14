@@ -207,7 +207,7 @@
 
 <span style="color:#df4e5c;">public</span> <span style="color:#b985b7;">class</span> <span style="color:#dc9744;">Controller</span> {
 
-    <span style="color:#df4e5c;">private static</span> Scanner scan = new Scanner(System.in);
+    <span style="color:#df4e5c;">private static</span> Scanner <span style="color:steelblue;">scan</span> <span style="color:#df4e5c;">=</span> <span style="color:#b985b7;">new</span> Scanner(System.in);
 
     <span style="color:#df4e5c;">private static</span> float ETHICS;
     <span style="color:#df4e5c;">private static</span> int[] affordanceFeatures = new int[3];
@@ -223,27 +223,27 @@
 
     <span style="color:#df4e5c;">public static</span> void main(String[] args) throws Exception {
 
-        // Step 1: greetings from Coppélia
+        <span style="color:#a5acba;">// Step 1: greetings from Coppélia</span>
         greetings();
 
-        // Step 2: self-introduction from the agent
+        <span style="color:#a5acba;">// Step 2: self-introduction from the agent</span>
         usrIntro();
 
-        // Step 3: Create all object and pass parameters for processing
-        Random rd = new Random(); ETHICS = rd.nextFloat(); Ethics eth = new Ethics(ETHICS); // Random Ethics
+        <span style="color:#a5acba;">// Step 3: Create all object and pass parameters for processing</span>
+        Random rd = new Random(); ETHICS = rd.nextFloat(); Ethics eth = new Ethics(ETHICS); <span style="color:#a5acba;">// Random Ethics</span>
         Affordance aff = new Affordance(affordanceFeatures);
         Valence val = new Valence(ETHICS, affordanceFeatures);
-        // feature-1: ethics   feature-2: age  feature-3: income  feature-4: pet
-        // For Users: All relevance can be changed here
+        <span style="color:#a5acba;">// feature-1: ethics   feature-2: age  feature-3: income  feature-4: pet</span>
+        <span style="color:#a5acba;">// For Users: All relevance can be changed here</span>
         Relevance[] rel = {new Relevance(0.657), new Relevance(0.9), new Relevance(0.312), new Relevance(0.76)};
         Involvement invl = new Involvement(ETHICS, aff.convert(affordanceFeatures[0], 0), aff.convert(affordanceFeatures[1], 1), aff.convert(affordanceFeatures[2], 2),  0.75,  0.4);
         Distance dist = new Distance(ETHICS, aff.convert(affordanceFeatures[0], 0), aff.convert(affordanceFeatures[1], 1), aff.convert(affordanceFeatures[2], 2),  0.25,  0.4);
         UseIntention useInt = new UseIntention(ETHICS, aff.convert(affordanceFeatures[0], 0), aff.convert(affordanceFeatures[1], 1), aff.convert(affordanceFeatures[2], 2));
 
-        // Step 4: sentence formulation
+        <span style="color:#a5acba;">// Step 4: sentence formulation</span>
         System.out.println(eth.compare());
-        sentenceFormulation(aff, val, rel);     // Ethics, Affordances, Relevance, Valence
-        invlNdistFormulation(invl, dist, useInt);    // Involvement, Distance
+        sentenceFormulation(aff, val, rel);     <span style="color:#a5acba;">// Ethics, Affordances, Relevance, Valence</span>
+        invlNdistFormulation(invl, dist, useInt);    <span style="color:#a5acba;">// Involvement, Distance</span>
         System.out.println(sent1.toString()); System.out.println("\n");
         System.out.println(sent2.toString()); System.out.println(sent3.toString()); System.out.println("\n");
         System.out.println(sent4.toString());
