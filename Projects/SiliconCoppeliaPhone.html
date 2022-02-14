@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Meta is the information that will not be shown on the screen -->
+  <!-- author: The name of the webpage -->
+  <meta name="author" content="Banjibear">
+  <!-- Refreshes the webpage every x seconds: 60 for the surrent case -->
+  <meta name="refresh" content="60">
+  <!-- Setting the viewport to make your website look good on all devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Projects - SiliconCoppélia </title> <!-- Name or the tile shown on the tab -->
+  <style>
+
+  body{
+    background-color: black;
+    color: ghostwhite;
+  }
+  ::selection{
+    color:  white;
+    background-color: green;
+  }
+  .icon {
+    /* Reference: https://stackoverflow.com/questions/53276676/icon-inside-button-not-centered-in-iphone */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+  }
+
+  /* The following are the Constant Settings/Styles in all pages */
+
+  /* Home button */
+  /* Using the same name in all Pages */
+  .b2{
+    position: absolute;
+    bottom: 25px;
+    right: 5px;
+    width: 50px;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: white; 
+    border: 2px solid transparent;
+  }
+  .b2:hover {
+    /* change color */
+    background-color: #e7e7e7;
+    color: white;
+    /* hover shadow */
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+  .b2:active {
+    background-color: #00000;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+  .bottomFooter{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
+
+  /* The sidebar */
+  .sidebar {
+    height: 100%; 
+    width: 0; 
+    position: fixed; 
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: black;
+    overflow-x: hidden; 
+    padding-top: 60px; 
+    transition: 0.5s; 
+  }
+  /* The sidebar links */
+  .sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: grey;
+    display: block;
+    transition: 0.3s;
+  }
+  .sidebar a:hover {
+    color: white;
+  }
+  .sidebar .closeButton {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  .openButton {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: transparent;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+  }
+  .openButton:hover {
+    background-color: #444;
+  }
+  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+  #main {
+    transition: margin-left .5s; /* If you want a transition effect */
+    padding: 20px;
+  }
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+  }
+
+  .content{
+    margin-left: 10vw;
+    margin-right: 10vw;
+    font-family: "Lucida Console", "Courier New", monospace;
+  }
+  .box{ max-width: 35vw;}
+  .box_align{ display: inline-flex;}
+  .box_align_margin{ margin-right: 10vw; }
+  @media only screen and (max-width: 620px){
+    .content{
+      width: 100%;
+      margin: 0;
+    }
+    .box, .box_align{
+      max-width: 100%;
+      display: block;
+    }
+  }
+
+
+  </style>
+</head>
+<body>
+
+  <div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closeButton" onclick="closeNav()">&times;</a>
+    <a href="../AboutMe.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">About Me</b> </a>
+    <a href="https://drive.google.com/file/d/1sUz0Q3nxzcKmmvESOlINPyJkDoz2tYtR/view?usp=sharing" target="_blank"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Resume</b> </a>
+    <a href="../Projects.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand"><ion-icon name="terminal-outline"></ion-icon> Projects</b> </a>
+    <a href="../Albums.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Albums</b> </a>
+    <a href="" onclick="alert('Sorry! This pager is not available yet &#x1F625;');"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Foodie</b> </a>
+    <a href="../Contact.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Contact</b> </a>
+  </div>
+  <div id="main">
+    <div style="text-align:left">
+      <button class="openButton" onclick="openNav()">&#9776;</button>
+    </div>
+  </div>
+
+  <a href="https://www.polyu.edu.hk/publications/excelximpact/issue/202101/research-innovation/robot-alice-alleviates-elderly-people-s-loneliness"><img src="Coppelia.jpg" style="width: 100%;"></a>
+  
+  <div class="content">
+    <h1>Silicon Coppélia</h1>
+    <hr style="border: 3px solid white; border-radius: 10px;">
+
+    <div class="box_align">
+      <div class="box">
+        <h2>About</h2>
+        <p>Silicon Coppélia is an ongoing affective computing research project. This software aims to cope with the number produced by Coppélia during the affection/emotion processing process in order to make Coppélia simulate emotions and response affectively to the agent being observed as well as select actions by applying Natural Language Processing(NLP).</p>
+      </div>
+      <div class="box">
+        <h2>Timeline</h2>
+        <p><b>November 2021 &#8722; Present</b></p>
+        <h2>To-Do</h2>
+        <p>The current priority is <b>to make explicit what Coppélia observes, the goals it has, and the reasoning it does (explainable AI)</b></p>
+      </div>
+    </div>
+
+    <h2>Notable Accomplishment</h2>
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+    
+
+    <hr><h2>Usage and Detailed Description</h2>
+    <hr><h2>Snipped Source Code</h2>
+    <p style="font-size: 3vw; text-align: center; color: grey;"><strong>Snipped Code is not available on phones!</strong></p>
+
+    <hr><h2>Development Team</h2>
+    <hr><h2>Reference</h2>
+    <a style="color: grey;" href="https://research.polyu.edu.hk/en/publications/silicon-coppelia-and-the-formalization-of-the-affective-process"><p style="color: grey;">J. F. Hoorn, T. Baier, J. A. N. Van Maanen and J. Wester, "Silicon Coppélia and the Formalization of the Affective Process," in IEEE Transactions on Affective Computing, doi: 10.1109/TAFFC.2020.3048587.</p></a>
+  </div>
+
+
+
+  <div class="bottomFooter">
+    <button class="b2" style="font-size: 25px;" onclick="window.location.href='../index.html';"><i class="icon"><ion-icon name="person-outline"></ion-icon></i></button>
+  </div>  
+
+<script>
+
+  /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
+  function openNav() {
+    document.getElementById("mySidebar").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+  }
+
+  /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+  function closeNav() {
+    document.getElementById("mySidebar").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
+  }
+
+</script>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <script type="text/javascript">
+    /* Refernece: https://css-tricks.com/snippets/javascript/redirect-mobile-devices/ */
+      if (screen.width > 699) {
+        location.replace("SiliconCoppelia.html");
+      }       
+  </script>
+
+</body>
+</html>
+
