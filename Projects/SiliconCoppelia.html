@@ -174,7 +174,7 @@
 
     <div class="box_align">
       <div class="box">
-        <h2>About the research project</h2>
+        <h2>About</h2>
         <p>Silicon Coppélia is an ongoing affective computing research project. This software aims to cope with the number produced by Coppélia during the affection/emotion processing process in order to make Coppélia simulate emotions and response affectively to the agent being observed as well as select actions by applying Natural Language Processing(NLP).</p>
       </div>
       <div class="box">
@@ -193,51 +193,51 @@
     
 
     <hr><h2>Usage and Detailed Description</h2>
-    <hr><h2>Snipped Source Code</h2>
-    <div class="code"><pre style="max-width: 10%;"><span style="color:#b985b7;">import</span> <span style="color:steelblue;">dimensions.*;</span>
+    <hr><h2 style="display: inline-flex;">Snipped Source Code</h2><p style="color: grey; display: inline-flex; margin: 10px; font-size: 5%;">Update: 15 FEB, 2022</p>
+    <div class="code"><pre style="max-width: 10%;"><span style="color:#b985b7;">import</span> <span style="color:steelblue;">dimensions.</span></span><span style="color:#e66a4c;">*</span>;
 
-<span style="color:#b985b7;">import</span> <span style="color:steelblue;">java.awt.*;</span>
-<span style="color:#b985b7;">import</span> <span style="color:steelblue;">java.util.*;</span>
-<span style="color:#b985b7;">import</span> <span style="color:steelblue;">java.lang.*;</span>
-<span style="color:#b985b7;">import</span> <span style="color:steelblue;">javax.swing.*;</span>
+<span style="color:#b985b7;">import</span> <span style="color:steelblue;">java.awt.</span><span style="color:#e66a4c;">*</span>;
+<span style="color:#b985b7;">import</span> <span style="color:steelblue;">java.util.</span><span style="color:#e66a4c;">*</span>;
+<span style="color:#b985b7;">import</span> <span style="color:steelblue;">java.lang.</span><span style="color:#e66a4c;">*</span>;
+<span style="color:#b985b7;">import</span> <span style="color:steelblue;">javax.swing.</span><span style="color:#e66a4c;">*</span>;
 <span style="color:#b985b7;">import</span> <span style="color:steelblue;">java.util.Random;</span>
 
 <span style="color:#b985b7;">import static</span> <span style="color:steelblue;">java.lang.Integer.parseInt;</span>
 
 <span style="color:#df4e5c;">public</span> <span style="color:#b985b7;">class</span> <span style="color:#dc9744;">Controller</span> {
 
-    <span style="color:#df4e5c;">private static</span> <span style="color:steelblue;">Scanner</span> scan <span style="color:#df4e5c;">=</span> <span style="color:#b985b7;">new</span> <span style="color:steelblue;">Scanner</span>(<span style="color:steelblue;">System</span>.in);
+    <span style="color:#df4e5c;">private static</span> <span style="color:steelblue;">Scanner</span> scan <span style="color:#e66a4c;">=</span> <span style="color:#b985b7;">new</span> <span style="color:steelblue;">Scanner</span>(<span style="color:steelblue;">System</span>.in);
 
     <span style="color:#df4e5c;">private static</span> <span style="color:#b985b7;">float</span> <span style="color:#dc9744;">ETHICS</span>;
-    <span style="color:#df4e5c;">private static</span> <span style="color:#b985b7;">int</span><span style="color:#df4e5c;">[]</span> affordanceFeatures = new int[3];
-    <span style="color:#df4e5c;">private static</span> <span style="color:#b985b7;">int</span> num <span style="color:#df4e5c;">=</span> <span style="color:#dc9744;">0</span>;
-    <span style="color:#df4e5c;">private static</span> <span style="color:#b985b7;">int</span> index <span style="color:#df4e5c;">=</span> <span style="color:#dc9744;">0</span>;
-    <span style="color:#df4e5c;">private static</span> String<span style="color:#df4e5c;">[]</span> features <span style="color:#df4e5c;">=</span> {"a friendly appearance ", "a young age ", "a wealthy income status ", "keeping one or two pets "};
-    <span style="color:#df4e5c;">private static</span> String<span style="color:#df4e5c;">[]</span> valence <span style="color:#df4e5c;">=</span> {"Your appearance ", "Your age ", "Your income status ", "The number of pets you have "};
+    <span style="color:#df4e5c;">private static</span> <span style="color:#b985b7;">int</span><span style="color:#df4e5c;">[]</span> affordanceFeatures <span style="color:#e66a4c;">=</span> <span style="color:#b985b7;">new int</span>[<span style="color:#dc9744;">3</span>];
+    <span style="color:#df4e5c;">private static</span> <span style="color:#b985b7;">int</span> num <span style="color:#e66a4c;">=</span> <span style="color:#dc9744;">0</span>;
+    <span style="color:#df4e5c;">private static</span> <span style="color:#b985b7;">int</span> index <span style="color:#e66a4c;">=</span> <span style="color:#dc9744;">0</span>;
+    <span style="color:#df4e5c;">private static</span> <span style="color:steelblue;">String</span><span style="color:#df4e5c;">[]</span> features <span style="color:#e66a4c;">=</span> {<span style="color:#39b6b5;">"</span><span style="color:#7baf81;">a friendly appearance <span style="color:#39b6b5;">"</span>, <span style="color:#39b6b5;">"</span>a young age <span style="color:#39b6b5;">"</span>, <span style="color:#39b6b5;">"</span>a wealthy income status <span style="color:#39b6b5;">"</span>, <span style="color:#39b6b5;">"</span>keeping one or two pets </span><span style="color:#39b6b5;">"</span>};
+    <span style="color:#df4e5c;">private static</span> <span style="color:steelblue;">String</span><span style="color:#df4e5c;">[]</span> valence <span style="color:#e66a4c;">=</span> {<span style="color:#39b6b5;">"</span><span style="color:#7baf81;">Your appearance <span style="color:#39b6b5;">"</span>, <span style="color:#39b6b5;">"</span>Your age <span style="color:#39b6b5;">"</span>, <span style="color:#39b6b5;">"</span>Your income status <span style="color:#39b6b5;">"</span>, <span style="color:#39b6b5;">"</span>The number of pets you have</span> <span style="color:#39b6b5;">"</span>};
 
-    <span style="color:#df4e5c;">private static</span> StringBuffer sent1 <span style="color:#df4e5c;">=</span> new StringBuffer("You are ");               <span style="color:#a5acba;">// Ethics and Affordances</span>
-    <span style="color:#df4e5c;">private static</span> StringBuffer sent2 <span style="color:#df4e5c;">=</span> new StringBuffer("I find ");                <span style="color:#a5acba;">// Relevance: What is important and what is not</span>
-    <span style="color:#df4e5c;">private static</span> StringBuffer sent3 <span style="color:#df4e5c;">=</span> new StringBuffer("");                       <span style="color:#a5acba;">// Valence: hope/fear a pos/neg outcome</span>
-    <span style="color:#df4e5c;">private static</span> StringBuffer sent4 <span style="color:#df4e5c;">=</span> new StringBuffer("Therefore, ");            <span style="color:#a5acba;">// Involvement and Distance</span>
+    <span style="color:#df4e5c;">private static</span> <span style="color:steelblue;">StringBuffer</span> sent1 <span style="color:#e66a4c;">=</span> <span style="color:#b985b7;">new</span> <span style="color:steelblue;">StringBuffer</span>(<span style="color:#39b6b5;">"</span><span style="color:#7baf81;">You are</span> <span style="color:#39b6b5;">"</span>);               <span style="color:#a5acba;">// Ethics and Affordances</span>
+    <span style="color:#df4e5c;">private static</span> <span style="color:steelblue;">StringBuffer</span> sent2 <span style="color:#e66a4c;">=</span> <span style="color:#b985b7;">new</span> <span style="color:steelblue;">StringBuffer</span>(<span style="color:#39b6b5;">"</span><span style="color:#7baf81;">I find</span> <span style="color:#39b6b5;">"</span>);                <span style="color:#a5acba;">// Relevance: What is important and what is not</span>
+    <span style="color:#df4e5c;">private static</span> <span style="color:steelblue;">StringBuffer</span> sent3 <span style="color:#e66a4c;">=</span> <span style="color:#b985b7;">new</span> <span style="color:steelblue;">StringBuffer</span>(<span style="color:#39b6b5;">""</span>);                       <span style="color:#a5acba;">// Valence: hope/fear a pos/neg outcome</span>
+    <span style="color:#df4e5c;">private static</span> <span style="color:steelblue;">StringBuffer</span> sent4 <span style="color:#e66a4c;">=</span> <span style="color:#b985b7;">new</span> <span style="color:steelblue;">StringBuffer</span>(<span style="color:#39b6b5;">"</span><span style="color:#7baf81;">Therefore,</span> <span style="color:#39b6b5;">"</span>);            <span style="color:#a5acba;">// Involvement and Distance</span>
 
-    <span style="color:#df4e5c;">public static</span> void main(String[] args) throws Exception {
+    <span style="color:#df4e5c;">public static</span> <span style="color:#b985b7;">void</span> <span style="color:#39b6b5;">main</span>(<span style="color:steelblue;">String</span><span style="color:#df4e5c;">[]</span> <span style="color:#dc9744;">args</span>) <span style="color:#b985b7;">throws</span> <span style="color:steelblue;">Exception</span> {
 
         <span style="color:#a5acba;">// Step 1: greetings from Coppélia</span>
-        greetings();
+        <span style="color:steelblue;">greetings</span>();
 
         <span style="color:#a5acba;">// Step 2: self-introduction from the agent</span>
-        usrIntro();
+        <span style="color:steelblue;">usrIntro</span>();
 
         <span style="color:#a5acba;">// Step 3: Create all object and pass parameters for processing</span>
-        Random rd = new Random(); ETHICS = rd.nextFloat(); Ethics eth = new Ethics(ETHICS); <span style="color:#a5acba;">// Random Ethics</span>
-        Affordance aff = new Affordance(affordanceFeatures);
-        Valence val = new Valence(ETHICS, affordanceFeatures);
+        <span style="color:steelblue;">Random</span> rd <span style="color:#e66a4c;">=</span> <span style="color:#b985b7;">new</span> <span style="color:steelblue;">Random</span>(); <span style="color:#b985b7;">ETHICS</span> <span style="color:#e66a4c;">=</span> rd.<span style="color:steelblue;">nextFloat</span>(); <span style="color:steelblue;">Ethics</span> eth <span style="color:#e66a4c;">=</span> <span style="color:#b985b7;">new</span> <span style="color:steelblue;">ETHICS</span>(<span style="color:#b985b7;">ETHICS</span>); <span style="color:#a5acba;">// Random Ethics</span>
+        <span style="color:steelblue;">Affordance</span> aff <span style="color:#e66a4c;">=</span> <span style="color:#b985b7;">new</span> <span style="color:steelblue;">Affordance</span>(affordanceFeatures);
+        <span style="color:steelblue;">Valence</span> val <span style="color:#e66a4c;">=</span> <span style="color:#b985b7;">new</span> <span style="color:steelblue;">Valence</span>(<span style="color:#b985b7;">ETHICS</span>, affordanceFeatures);
         <span style="color:#a5acba;">// feature-1: ethics   feature-2: age  feature-3: income  feature-4: pet</span>
         <span style="color:#a5acba;">// For Users: All relevance can be changed here</span>
-        Relevance[] rel = {new Relevance(0.657), new Relevance(0.9), new Relevance(0.312), new Relevance(0.76)};
-        Involvement invl = new Involvement(ETHICS, aff.convert(affordanceFeatures[0], 0), aff.convert(affordanceFeatures[1], 1), aff.convert(affordanceFeatures[2], 2),  0.75,  0.4);
-        Distance dist = new Distance(ETHICS, aff.convert(affordanceFeatures[0], 0), aff.convert(affordanceFeatures[1], 1), aff.convert(affordanceFeatures[2], 2),  0.25,  0.4);
-        UseIntention useInt = new UseIntention(ETHICS, aff.convert(affordanceFeatures[0], 0), aff.convert(affordanceFeatures[1], 1), aff.convert(affordanceFeatures[2], 2));
+        <span style="color:steelblue;">Relevance</span>[] rel <span style="color:#e66a4c;">=</span> {new <span style="color:steelblue;">Relevance</span>(0.657), new <span style="color:steelblue;">Relevance</span>(0.9), new <span style="color:steelblue;">Relevance</span>(0.312), new <span style="color:steelblue;">Relevance</span>(0.76)};
+        <span style="color:steelblue;">Involvement</span> invl <span style="color:#e66a4c;">=</span> new <span style="color:steelblue;">Involvement</span>(ETHICS, aff.<span style="color:steelblue;">convert</span>(affordanceFeatures[0], 0), aff.<span style="color:steelblue;">convert</span>(affordanceFeatures[1], 1), aff.<span style="color:steelblue;">convert</span>(affordanceFeatures[2], 2),  0.75,  0.4);
+        Distance dist <span style="color:#e66a4c;">=</span> new Distance(ETHICS, aff.<span style="color:steelblue;">convert</span>(affordanceFeatures[0], 0), aff.<span style="color:steelblue;">convert</span>(affordanceFeatures[1], 1), aff.<span style="color:steelblue;">convert</span>(affordanceFeatures[2], 2),  0.25,  0.4);
+        UseIntention useInt <span style="color:#e66a4c;">=</span> new UseIntention(ETHICS, aff.<span style="color:steelblue;">convert</span>(affordanceFeatures[0], 0), aff.<span style="color:steelblue;">convert</span>(affordanceFeatures[1], 1), aff.<span style="color:steelblue;">convert</span>(affordanceFeatures[2], 2));
 
         <span style="color:#a5acba;">// Step 4: sentence formulation</span>
         System.out.println(eth.compare());
@@ -516,8 +516,13 @@
     }
 }
 </pre></div>
-<a href="https://github.com/SiliconCoppelia/Coppelia" target="_blank" style="color: grey;"><p>For detailed implementation, please refer to our github repository</p></a>
+<a href="https://github.com/SiliconCoppelia/Coppelia" target="_blank" style="color: grey;"><p>Open Source Code</p></a>
     <hr><h2>Development Team</h2>
+    <a href="https://www.linkedin.com/in/yi-pu-chen-535040194" target="_blank" title="Tommy"><img src="banjibear.jpg" style="width:200px; height:200px; object-fit:cover; border-radius:50%;"></a>
+    <a href="https://www.linkedin.com/in/kanbei-yan-24b6311aa/" target="_blank" title="Kan"><img src="kan.jpg" style="width:200px; height:200px; object-fit:cover; border-radius:50%;"></a>
+    <a href="https://github.com/Yookivivi" target="_blank" title="Yooki"><img src="nobody.jpg" style="width:200px; height:200px; object-fit:cover; border-radius:50%;"></a>
+    <a href="https://github.com/RepublicHo" target="_blank" title="Anthony"><img src="nobody.jpg" style="width:200px; height:200px; object-fit:cover; border-radius:50%;"></a>
+    <a href="" target="_blank" title="Ivy"><img src="nobody.jpg" style="width:200px; height:200px; object-fit:cover; border-radius:50%;"></a>
     <hr><h2>Reference</h2>
     <a style="color: grey;" href="https://research.polyu.edu.hk/en/publications/silicon-coppelia-and-the-formalization-of-the-affective-process" target="_blank"><p style="color: grey;">J. F. Hoorn, T. Baier, J. A. N. Van Maanen and J. Wester, "Silicon Coppélia and the Formalization of the Affective Process," in IEEE Transactions on Affective Computing, doi: 10.1109/TAFFC.2020.3048587.</p></a>
   </div>
