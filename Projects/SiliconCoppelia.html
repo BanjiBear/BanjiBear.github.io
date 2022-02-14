@@ -165,7 +165,7 @@
     </div>
   </div>
 
-  <a href="https://www.polyu.edu.hk/publications/excelximpact/issue/202101/research-innovation/robot-alice-alleviates-elderly-people-s-loneliness"><img src="Coppelia.jpg" style="width: 100%;"></a>
+  <a href="https://www.polyu.edu.hk/publications/excelximpact/issue/202101/research-innovation/robot-alice-alleviates-elderly-people-s-loneliness" target="_blank"><img src="Coppelia.jpg" style="width: 100%;"></a>
   
   <div class="content">
     <h1>Silicon Coppélia</h1>
@@ -207,19 +207,19 @@
 
 <span style="color:#df4e5c;">public</span> <span style="color:#b985b7;">class</span> <span style="color:#dc9744;">Controller</span> {
 
-    <span style="color:#df4e5c;">private static</span> Scanner <span style="color:steelblue;">scan</span> <span style="color:#df4e5c;">=</span> <span style="color:#b985b7;">new</span> Scanner(System.in);
+    <span style="color:#df4e5c;">private static</span> <span style="color:steelblue;">Scanner</span> scan <span style="color:#df4e5c;">=</span> <span style="color:#b985b7;">new</span> <span style="color:steelblue;">Scanner</span>(<span style="color:steelblue;">System</span>.in);
 
-    <span style="color:#df4e5c;">private static</span> float ETHICS;
-    <span style="color:#df4e5c;">private static</span> int[] affordanceFeatures = new int[3];
-    <span style="color:#df4e5c;">private static</span> int num = 0;
-    <span style="color:#df4e5c;">private static</span> int index = 0;
-    <span style="color:#df4e5c;">private static</span> String[] features = {"a friendly appearance ", "a young age ", "a wealthy income status ", "keeping one or two pets "};
-    <span style="color:#df4e5c;">private static</span> String[] valence = {"Your appearance ", "Your age ", "Your income status ", "The number of pets you have "};
+    <span style="color:#df4e5c;">private static</span> <span style="color:#b985b7;">float</span> <span style="color:#dc9744;">ETHICS</span>;
+    <span style="color:#df4e5c;">private static</span> <span style="color:#b985b7;">int</span><span style="color:#df4e5c;">[]</span> affordanceFeatures = new int[3];
+    <span style="color:#df4e5c;">private static</span> <span style="color:#b985b7;">int</span> num <span style="color:#df4e5c;">=</span> <span style="color:#dc9744;">0</span>;
+    <span style="color:#df4e5c;">private static</span> <span style="color:#b985b7;">int</span> index <span style="color:#df4e5c;">=</span> <span style="color:#dc9744;">0</span>;
+    <span style="color:#df4e5c;">private static</span> String<span style="color:#df4e5c;">[]</span> features <span style="color:#df4e5c;">=</span> {"a friendly appearance ", "a young age ", "a wealthy income status ", "keeping one or two pets "};
+    <span style="color:#df4e5c;">private static</span> String<span style="color:#df4e5c;">[]</span> valence <span style="color:#df4e5c;">=</span> {"Your appearance ", "Your age ", "Your income status ", "The number of pets you have "};
 
-    <span style="color:#df4e5c;">private static</span> StringBuffer sent1 = new StringBuffer("You are ");               // Ethics and Affordances
-    <span style="color:#df4e5c;">private static</span> StringBuffer sent2 = new StringBuffer("I find ");                // Relevance: What is important and what is not
-    <span style="color:#df4e5c;">private static</span> StringBuffer sent3 = new StringBuffer("");                       // Valence: hope/fear a pos/neg outcome
-    <span style="color:#df4e5c;">private static</span> StringBuffer sent4 = new StringBuffer("Therefore, ");            // Involvement and Distance
+    <span style="color:#df4e5c;">private static</span> StringBuffer sent1 <span style="color:#df4e5c;">=</span> new StringBuffer("You are ");               <span style="color:#a5acba;">// Ethics and Affordances</span>
+    <span style="color:#df4e5c;">private static</span> StringBuffer sent2 <span style="color:#df4e5c;">=</span> new StringBuffer("I find ");                <span style="color:#a5acba;">// Relevance: What is important and what is not</span>
+    <span style="color:#df4e5c;">private static</span> StringBuffer sent3 <span style="color:#df4e5c;">=</span> new StringBuffer("");                       <span style="color:#a5acba;">// Valence: hope/fear a pos/neg outcome</span>
+    <span style="color:#df4e5c;">private static</span> StringBuffer sent4 <span style="color:#df4e5c;">=</span> new StringBuffer("Therefore, ");            <span style="color:#a5acba;">// Involvement and Distance</span>
 
     <span style="color:#df4e5c;">public static</span> void main(String[] args) throws Exception {
 
@@ -517,9 +517,10 @@
     }
 }
 </pre></div>
+<a href="https://github.com/SiliconCoppelia/Coppelia" target="_blank" style="color: grey;"><p>For detailed implementation, please refer to our github repository</p></a>
     <hr><h2>Development Team</h2>
     <hr><h2>Reference</h2>
-    <a style="color: grey;" href="https://research.polyu.edu.hk/en/publications/silicon-coppelia-and-the-formalization-of-the-affective-process"><p style="color: grey;">J. F. Hoorn, T. Baier, J. A. N. Van Maanen and J. Wester, "Silicon Coppélia and the Formalization of the Affective Process," in IEEE Transactions on Affective Computing, doi: 10.1109/TAFFC.2020.3048587.</p></a>
+    <a style="color: grey;" href="https://research.polyu.edu.hk/en/publications/silicon-coppelia-and-the-formalization-of-the-affective-process" target="_blank"><p style="color: grey;">J. F. Hoorn, T. Baier, J. A. N. Van Maanen and J. Wester, "Silicon Coppélia and the Formalization of the Affective Process," in IEEE Transactions on Affective Computing, doi: 10.1109/TAFFC.2020.3048587.</p></a>
   </div>
 
 
@@ -547,12 +548,6 @@
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-  <script type="text/javascript">
-    /* Refernece: https://css-tricks.com/snippets/javascript/redirect-mobile-devices/ */
-      if (screen.width <= 699) {
-        location.replace("SiliconCoppeliaPhone.html");
-      }       
-  </script>
 
 </body>
 </html>
