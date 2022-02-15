@@ -125,7 +125,7 @@
   }
   .box{ max-width: 35vw;}
   .box_align{ display: inline-flex;}
-  .box_align_margin{ margin-right: 10vw; }
+  .box_align_margin{ margin-left: 10vw; }
   .code{
     width: 100%;
     height: 50vh;
@@ -142,6 +142,9 @@
     .box, .box_align{
       max-width: 100%;
       display: block;
+    }
+    .box_align_margin{
+      margin: 0;
     }
   }
 
@@ -192,7 +195,21 @@
     </ul>
 
     <hr><h2>Silicon Coppélia</h2>
+    <p>The system, Silicon Coppélia, observers features of other agents then pass them through the emotion processing process. The process compares the observered features of the agent and the goal Coppélia aims to achieve, mapping each feature to a numeric number applying fuzzy logic. However, as the development team, we target the numbers produced in the aforementioned phase and design the model to convert them into meaningful words.</p>
+    <p>Coppélia was first deisgned for dating and therapy usage but the system was implemented such that not only the goal of Coppélia can be modified but algorithms can be replaced or relations between variables can be altered according to new empirical results or different theoretical insights [1].</p>
+    <p>Currently, instead of focusing on the features selected, in order to simulate how human reasons their emotions, the team manage to make explicit and clear picture of the reasoning between the word Coppélia speaks and the features input. This is highly related to the goal and thoery used, the fuzzy logic. For instance, <b>Coppélia can feel engaged with the agent but at the same time holiding some reservations.</b></p>
+    <p>The question then arised: Why?</p>
+
     <hr><h2>Modeling</h2>
+    <div class="box_align">
+      <div class="box">
+        <img src="../images/Projects/Coppelia.jpg" style="max-width: 100%; background-color: white;">
+      </div>
+      <div class="box">
+        <p class="box_align_margin"></p>
+      </div>
+    </div> 
+
     <hr><h2 style="display: inline-flex;">Snipped Source Code</h2><p style="color: grey; display: inline-flex; margin: 10px; font-size: 5%;">Update: 15 FEB, 2022</p>
     <div class="code"><pre style="max-width: 10%;"><span style="color:#b985b7;">import</span> <span style="color:steelblue;">dimensions.</span></span><span style="color:#e66a4c;">*</span>;
 
@@ -519,6 +536,9 @@
 <a href="https://github.com/SiliconCoppelia/Coppelia" target="_blank" style="color: grey;"><p>Open Source Code</p></a>
 
     <hr><h2>The Next Step</h2>
+    <p>Before digging into NLP model and algorithm design, our next step will be: </p>
+    <h3>&#8594; Cope with linguistic rules and idiomatic variations</h3>
+    <h3>&#8594; (To be updated..)</h3>
 
     <hr><h2>Development Team</h2>
     <a href="https://www.linkedin.com/in/yi-pu-chen-535040194" target="_blank" title="Tommy"><img src="banjibear.jpg" style="width:200px; height:200px; object-fit:cover; border-radius:50%; margin: 5px;"></a>
