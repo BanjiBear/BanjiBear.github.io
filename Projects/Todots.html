@@ -125,7 +125,7 @@
   }
   .box{ max-width: 35vw;}
   .box_align{ display: inline-flex;}
-  .box_align_margin{ margin-right: 10vw; }
+  .box_align_margin{ margin-left: 10vw; }
   .code{
     width: 100%;
     height: 50vh;
@@ -142,6 +142,9 @@
     .box, .box_align{
       max-width: 100%;
       display: block;
+    }
+    .box_align_margin{
+      margin: 0;
     }
   }
 
@@ -178,10 +181,10 @@
         <p>Silicon Coppélia is an ongoing affective computing research project. This software aims to cope with the number produced by Coppélia during the affection/emotion processing process in order to make Coppélia simulate emotions and response affectively to the agent being observed as well as select actions by applying Natural Language Processing(NLP).</p>
       </div>
       <div class="box">
-        <h2>Timeline</h2>
-        <p>September 2021 &#8722; November 2021</p>
-        <h2>Note</h2>
-        <p></p>
+        <h2 class="box_align_margin">Timeline</h2>
+        <p class="box_align_margin">September 2021 &#8722; November 2021</p>
+        <h2 class="box_align_margin">Note</h2>
+        <p class="box_align_margin"></p>
       </div>
     </div>
 
@@ -193,7 +196,15 @@
 
     <hr><h2>Todots</h2>
     <hr><h2>System Architecture</h2>
-    <img src="Todots_system_struc.jpg" style="width: 100%;">
+    <div class="box_align">
+      <div class="box">
+        <img src="Todots_system_struc.jpg" style="max-width: 100%; background-color: white;">
+      </div>
+      <div class="box">
+        <h2 class="box_align_margin">Timeline</h2>
+        <p class="box_align_margin">September 2021 &#8722; November 2021</p>
+      </div>
+    </div>
     <hr><h2 style="display: inline-flex;">Snipped Source Code</h2><p style="color: grey; display: inline-flex; margin: 10px; font-size: 5%;">Update: 15 FEB, 2022</p>
     <div class="code"><pre style="max-width: 10%;"></pre></div>
 <a href="https://github.com/BanjiBear/Todots" target="_blank" style="color: grey;"><p>Open Source Code</p></a>
