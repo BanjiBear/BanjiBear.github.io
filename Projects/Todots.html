@@ -178,11 +178,11 @@
     <div class="box_align">
       <div class="box">
         <h2>About</h2>
-        <p></p>
+        <p>Todots gives you the comfort you deserve and serves as a smart assistant which can keep all your tasks organized, so you can focus on doing the tasks rather than planning what to do. As students we realized what issues we faced with deadlines, not knowing how to start working on projects. We understand that tasks aren’t binary, they need more than just add/delete. That’s why we invented the Todos Task Life Stages: <br> 1.Planned 2. Started 3. 50% 4. Done</p>
       </div>
       <div class="box">
         <h2 class="box_align_margin">Timeline</h2>
-        <p class="box_align_margin">September 2021 &#8722; November 2021</p>
+        <p class="box_align_margin">September 2021 &#8722; Present</p>
         <h2 class="box_align_margin">Note</h2>
         <p class="box_align_margin"></p>
       </div>
@@ -190,26 +190,78 @@
 
     <h2>Improvements to be done</h2>
     <ul>
-      <li></li>
-      <li></li>
+      <li>Able to change Priority according to the time left</li>
+      <li>Able to checks the workload according to Task name</li>
     </ul>
 
     <hr><h2>Todots</h2>
+    <p>Todots is developed using cleient and server architechture, it allows users to assign 3 priority levels: #1, #2, #3, 1 being the most important. Apart from the user setting the priority of the work to be done by themself, the applications alters the priority according to the workload it senses or the time left for the particular assignment. Todots hopes to improve the overall user experience and work better with tasks.</p>
     <hr><h2>System Architecture</h2>
     <div class="box_align">
       <div class="box">
         <img src="Todots_system_struc.jpg" style="max-width: 100%; background-color: white;">
       </div>
       <div class="box">
-        <h2 class="box_align_margin">Timeline</h2>
-        <p class="box_align_margin">September 2021 &#8722; November 2021</p>
+        <p class="box_align_margin">We proposed a task tracking application named Todots. The application was implemented in client-server architecture and design for Android platform devices.</p>
+        <p class="box_align_margin">Todots consist of the following components: <br>
+          1.  A login page 2. A registration page 3.  Homepage 4.  Adding task page 5.  Database and 6. Server
+</p>
       </div>
     </div>
-    <hr><h2 style="display: inline-flex;">Snipped Source Code</h2><p style="color: grey; display: inline-flex; margin: 10px; font-size: 5%;">Update: 15 FEB, 2022</p>
-    <div class="code"><pre style="max-width: 10%;"></pre></div>
+    <hr><h2 style="display: inline-flex;">Snipped Source Code</h2><p style="color: grey; display: inline-flex; margin: 10px; font-size: 5%;">Update: 1 MAR, 2022</p>
+    <div class="code"><pre style="max-width: 10%;">package com.example.registration;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+
+    EditText pas, usr;
+    Button switchTL;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        usr = (EditText) findViewById(R.id.username);
+        pas = (EditText) findViewById(R.id.password);
+        switchTL = findViewById(R.id.LoginButton);
+        switchTL.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Called when a view has been clicked.
+             *
+             * @param v The view that was clicked.
+             */
+            @Override
+            public void onClick(View v) {
+                startIntent();
+            }
+        });
+    }
+    private void startIntent() {
+        Intent switchActivityIntent = new Intent(this, MainActivity2.class);
+        startActivity(switchActivityIntent);
+    }
+    public void register(View view) {
+        String user = usr.getText().toString();
+        String pass = pas.getText().toString();
+        background bg = new background(this);
+        bg.execute(user,pass);
+        usr.setText("");
+        pas.setText("");
+    }
+
+}</pre></div>
 <a href="https://github.com/BanjiBear/Todots" target="_blank" style="color: grey;"><p>Open Source Code</p></a>
 
     <hr><h2>The Next Step</h2>
+    <h3 style="font-weight:normal">&#8594; Organize the file structure and the source codes</h3>
+    <h3 style="font-weight:normal">&#8594; Implement the function to alters the priority according to the workload it senses or the time left for the particular assignment</h3>
 
     <hr><h2>Development Team</h2>
     <a href="https://www.linkedin.com/in/yi-pu-chen-535040194" target="_blank" title="Tommy"><img src="banjibear.jpg" style="width:200px; height:200px; object-fit:cover; border-radius:50%; margin: 5px;"></a>
