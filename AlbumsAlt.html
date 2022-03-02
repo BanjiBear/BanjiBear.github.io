@@ -116,32 +116,12 @@
 
   /* Vertical Sliding Bars */
   .verticalBars{
-    background-attachment: fixed; /* html float fixed background */
-    
-    background-color: darkgrey;
-    background-repeat: no-repeat;
-    background-position: center;
-
-    max-width: 100%;
-
     /* Text Style */
     color: #fff;
     font: 10vw Bradley Hand;
-    line-height: 100vh;
+    height: 30vh;
+    line-height: 30vh;
     text-align: center;
-  }
-
-  .HongKongLife{
-    background-image: url("./Gallery/HongKongLife/xxx1.jpg");
-  }
-  .Memories{
-    background-image: url("./Gallery/Aqua.jpg");
-  }
-  .FrindsandFam{
-    background-image: url("./Gallery/FrindsandFam.jpg");
-  }
-  .Taiwan{
-    background-image: url("./Gallery/Taiwan.jpg");
   }
 
   </style>
@@ -163,14 +143,13 @@
     </div>
   </div>
 
-  <div class="verticalBars HongKongLife" style="margin-top: -6%;">Hong Kong</div>
+  <img src="./Gallery/HongKongLife/xxx1.jpg" style="width: 100%;">
   <div class="verticalBars">Uni Life</div>
-  <div class="verticalBars Taiwan">Taiwan</div>
+  <img src="./Gallery/Taiwan.jpg" style="width: 100%;">
   <div class="verticalBars">Daily</div>
-  <div class="verticalBars Memories">Memories</div>
+  <img src="./Gallery/Aqua.jpg" style="width: 100%;">
   <div class="verticalBars">Food</div>
-  <div class="verticalBars FrindsandFam">Frinds and Fam</div>
-
+  <img src="./Gallery/FrindsandFam.jpg" style="width: 100%;">
 
   <div class="bottomFooter">
     <button class="b2" style="font-size: 25px;" onclick="window.location.href='index.html';" title="Back to the Homepage"><i class="icon"><ion-icon name="person-outline"></ion-icon></i></button>
@@ -197,8 +176,8 @@
 
   <script type="text/javascript">
     /* Refernece: https://css-tricks.com/snippets/javascript/redirect-mobile-devices/ */
-      if (screen.width <= 699) {
-        location.replace("Resume.pdf");
+      if (screen.width > 699) {
+        location.replace("Albums.html");
       }       
   </script>
 
