@@ -188,38 +188,103 @@
     <div class="box_align">
       <div class="box">
         <h2>About</h2>
-        <p></p>
+        <p>The goal of this project is to develop an in-memory Virtual File System (VFS), named the Comp VFS (CVFS), in Java. A VFS is usually built on top of a host file system to enable uniform access to files located in different host file systems, while the CVFS simulates a file system in memory.</p>
       </div>
       <div class="box">
         <h2 class="box_align_margin">Timeline</h2>
-        <p class="box_align_margin">September 2021 &#8722; Present</p>
+        <p class="box_align_margin">September 2020 &#8722; November 2020</p>
         <h2 class="box_align_margin">Note</h2>
         <p class="box_align_margin"></p>
       </div>
     </div>
 
-    <h2>Improvements to be done</h2>
-
     <hr><h2>In-Memory Virtual File System</h2>
-    <p></p>
+    <p>The CVFS provides a command line interface (CLI) tool to facilitate the use of virtual disks, and some of the requirements for the CLI tool are as the following. Here we use symbol ‘$’ to denote the working directory and symbol ‘:’ to separate the file names in a path. For example, path “$:xyz” refers to a file named “xyz” inside the working directory. Depending on whether the file actually exists in the working directory or not, the path may be valid or invalid.</p>
+    <p>The system operates on one virtual disk at a time; Each virtual disk has a maximum size and may contain as many files, i.e., documents and directories, as allowed by that size; For each document, the virtual disk maintains its name, type, and content, all of type String; For each directory, the virtual disk maintains its name of type String and the list of files directly contained in it; Only digits and English letters are allowed in file names, and each file name may have at most 10 characters; Only documents of types txt, java, html, and css are allowed in the system; The size of a document is calculated as 40+content.length()*2, and the size of a directory is calculated as 40 plus the total size of its contained files.</p>
+    <p>All the commands for the file system are as follows: </p>
+    <ul>
+      <li style="color:green"><b>Command: newDisk diskSize</b></li>
+      <p>The tool should support the creation of a new disk with a specified maximum size.<br>Effect: Creates a new virtual disk with the specified maximum size. The previous working disk, if any, is closed; The newly created disk is set to be the working disk of the system, and the working directory is set to be the root directory of the disk.</p>
+
+      <li style="color:green"><b>Command: newDoc docName docType docContent</b></li>
+      <p>The tool should support the creation of a new document in the working directory.<br>Effect: Creates a new document in the working directory with the specified name, type, and content.</p>
+
+      <li style="color:green"><b>Command: newDir dirName</b></li>
+      <p>The tool should support the creation of a new directory in the working directory.<br>Effect: Creates a new directory in the working directory with the specified name.</p>
+
+      <li style="color:green"><b>Command: delete fileName</b></li>
+      <p>The tool should support the deletion of an existing file in the working directory.<br>Effect: Delete an existing file with the specified name from the working directory.</p>
+
+      <li style="color:green"><b>Command: rename oldFileName newFileName</b></li>
+      <p>The tool should support the rename of an existing file in the working directory.<br>Effect: Rename an existing file in the working directory from oldFileName to newFileName.</p>
+
+      <li style="color:green"><b>Command: changeDir dirName</b></li>
+      <p>The tool should support the change of working directory.<br>Effect: If there is a directory with the specified name in the working directory, use that directory as the new working directory; If dirName is “..”, i.e., two dots, and the working directory is not the root directory of the working disk, use the parent directory of the working directory as the new working directory.</p>
+
+      <li style="color:green"><b>Command: list</b></li>
+      <p>The tool should support listing all files direclty contained in the working directory.<br>Effect: List all the files directly contained in the working directory. For each document, list the name, type, and size; For each directory, list the name and size. Report the total number and size of files listed.</p>
+
+      <li style="color:green"><b>Command: rList</b></li>
+      <p>The tool should support recursively listing all files in the working directory.<br>Effect: List all the files contained in the working directory. For each document, list the name, type, and size; For each directory, list the name and size. Use indentation to indicate the level of each file. Report the total number and size of files listed.</p>
+
+      <li style="color:green"><b>Command: newSimpleCri criName attrName op val</b></li>
+      <p>The tool should support the construction of simple criteria.<br>Effect: Construct a simple criterion that can be referenced by criName. A criName contains exactly two English letters, and attrName is either name, type, or size. If attrName is name, op must be contains and val must be a string in double quote; If attrName is type, op must be equals and val must be a string in double quote; If attrName is size, op can be >, <, >=, <=, ==, or !=, and val must be an integer.</p>
+
+      <li style="color:green"><b>Criterion name: IsDocument</b></li>
+      <p>The tool should support a simple criterion to check whether a file is a document.<br>Effect: Evaluates to true if and only if on a document.</p>
+
+      <li style="color:green"><b>Command: newNegation criName1 criName2</b></li>
+      <li style="color:green"><b>Command: newBinaryCri criName1 criName3 logicOp criName4</b></li>
+      <p>The tool should support the construction of composite criteria.<br>Effect: Construct a composite criterion that can be referenced by criName1. The new criterion constructed using command newNegation is the negation of an ex- isting criterion named criName2; The new criterion constructed using command newBinaryCri is criName3 op criName4, where criName3 and criName4 are two existing criteria, while logicOp is either && or ||.</p>
+
+      <li style="color:green"><b>Command: printAllCriteria</b></li>
+      <p>The tool should support the printing of all defined criteria.<br>Effect: Print out all the criteria defined. All criteria should be resolved to the form containing only attrName, op, val, logicOp, or IsDocument.</p>
+
+      <li style="color:green"><b>Command: search criName</b></li>
+      <p>The tool should support searching for files in the working directory based on an existing criterion.<br>Effect: List all the files directly contained in the working directory that satisfy criterion criName. Report the total number and size of files listed.</p>
+
+      <li style="color:green"><b>Command: rSearch criName</b></li>
+      <p>The tool should support recursively searching for files in the working directory based on an existing criterion.<br>Effect: List all the files contained in the working directory that satisfy criterion criName. Report the total number and size of files listed.</p>
+    </ul>
+    
     <hr><h2>System Architecture</h2>
     <div class="box_align">
       <div class="box">
-        <img src="Todots_system_struc.jpg" style="max-width: 100%; background-color: white;">
+        <img src="UML.png" style="max-width: 100%; background-color: white;">
       </div>
       <div class="box">
-        <p class="box_align_margin"></p>
+        <p class="box_align_margin">The UI class is responsible for user interactivity with the program. It displays output to the console in a human readable format and accepts input from the user. The output includes file listing, command results, error messages and more. The input is mostly commands such as those for creating a file, a criterion or listing files in the current working directory.</p>
+        <p class="box_align_margin">The UI class sends user commands to the CommandController class. The CommandController interprets commands and decides which operation to carry out based on the type of command. The CommandController class delegates command execution to the CVFS class.</p>
       </div>
     </div>
+
+    <p>The <b>CVFS</b> class contains all the business logic for the application. The class exposes methods to create files, documents and criteria. Other functions include listing and searching files in the working directory or recursively.</p>
+
+    <p>The <b>CVFS</b> class however delegates some of the tasks to other the <b>VirtualDisk</b> class. The <b>VirtualDisk</b> class represents a virtual disk. There can only be one virtual disk at a time from the <b>CVFS</b> perspective. The virtual disk handles some disk related tasks such as getting the current working directory path and switching directories.</p>
+
+    <p>The <b>VirtualDisk</b> class maintains a hierarchy of <b>File</b> class objects. The <b>File</b> class is an abstract class that represents both documents and directories. A document is represented by the <b>Document</b> class. The <b>Document</b> class defines the type of document, content and knows how to compute the size of the document based on the content. The <b>Directory</b> class models a directory. It defines the set of <b>File</b> objects it contains and knows how to compute its size based on its contents.</p>
+
+    <p>Additionally, the VirtualDisk class defines the set of criteria that can be used to search for files in it. The abstract class FileCriterion is the one any other file criterion must inherit from. It defines a common property such as a criterion name and the validation of the name upon initialization. The FileCriterion class also defines the abstract method used to check if files meet the criterion.</p>
+
+    <p>A SimpleCriterion class represents criteria that are built from scratch (they are not built by using other criteria). Concrete classes that inherit from the SimpleCriterion class are the FileTypeCriterion (validates documents based on their type), FileNameCriterion (validates files based on their names), FileSizeCriterion (validates files based on their size) and the IsDocumentCriterion class which checks whether a file is a document or not.</p>
+
+    <p>There are composite criteria that are built from existing FileCriterion objects. These are the BinaryCompositeCriterion and the NegationCompositeCriterion.<br><br>The BinaryCompositeCriterion is built from two FileCriterion objects and a logical operator. The NegativeCompositeCriterion is built from the negation of an existing FileCriterion.</p>
+
+    <p>The Action class is used by the CVFS to encapsulate tasks that can be undone or redone. The CVFS maintains a stack of Action objects and unwinds them during an “undo” or “redo” operation. For example, when an action is done, it is pushed onto the stack. An “undo” operation pops the action from the stack and executes it.</p>
+
+    <p>The Bucket class is an inner class of the CVFS class. When doing a recursive retrieval of files starting from the working directory, the Bucket class is used to group the files according to the level the search was made. The deeper the files were found, the higher the “level” in the Bucket class.</p>
+
+    <p>Finally, the Application class is used to launch the application. It instantiates the CVFS, UI and CommandController classes and then asks the UI to display the starter user interface, so that the user can proceed from there.</p>
+
     <hr><h2 style="display: inline-flex;">Snipped Source Code</h2><p style="color: grey; display: inline-flex; margin: 10px; font-size: 5%;">Update: 1 MAR, 2022</p>
     <div class="code"><pre style="max-width: 10%;"></pre></div>
-<a href="https://github.com/BanjiBear/Todots" target="_blank" style="color: grey;"><p>Open Source Code</p></a>
-
-    <hr><h2>The Next Step</h2>
+<a href="https://github.com/BanjiBear/In-Memory-Virtual-File-System" target="_blank" style="color: grey;"><p>Open Source Code</p></a>
 
     <hr><h2>Development Team</h2>
     <a href="https://www.linkedin.com/in/yi-pu-chen-535040194" target="_blank" title="Tommy"><img src="banjibear.jpg" style="width:200px; height:200px; object-fit:cover; border-radius:50%; margin: 5px;"></a>
-    <a href="mailto:19053031d@connect.polyu.hk" target="_blank" title="Mathew"><img src="nobody.jpg" style="width:200px; height:200px; object-fit:cover; border-radius:50%; margin: 5px;"></a>
+    <a href="https://blog.csdn.net/weixin_39591031?spm=1000.2115.3001.5343" target="_blank" title="Xavier"><img src="Xav.jpg" style="width:200px; height:200px; object-fit:cover; border-radius:50%; margin: 5px;"></a>
+    <a href="linkedin.com/in/win-hong-chai-815126206" target="_blank" title="James"><img src="James.jpg" style="width:200px; height:200px; object-fit:cover; border-radius:50%; margin: 5px;"></a>
+    <a href="hmailto:yangxiaolong.xie@connect.polyu.hk" target="_blank" title="Bruce"><img src="nobody.jpg" style="width:200px; height:200px; object-fit:cover; border-radius:50%; margin: 5px;"></a>
 
   </div>
 

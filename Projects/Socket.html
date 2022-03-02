@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Meta is the information that will not be shown on the screen -->
+  <!-- author: The name of the webpage -->
+  <meta name="author" content="Banjibear">
+  <!-- Refreshes the webpage every x seconds: 60 for the surrent case -->
+  <meta name="refresh" content="60">
+  <!-- Setting the viewport to make your website look good on all devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Projects - Todots </title> <!-- Name or the tile shown on the tab -->
+  <style>
+
+  :root{
+    --purple: #cf91c9;
+    --yellow: #ffab42;
+    --blue: #4d80ad;
+    --red: #ff5261;
+    --green: #39b6b5;
+    --equal: #ff724c;
+    --comments: #9fa6b3;
+  }
+
+  body{
+    background-color: black;
+    color: ghostwhite;
+  }
+  ::selection{
+    color:  white;
+    background-color: green;
+  }
+  .icon {
+    /* Reference: https://stackoverflow.com/questions/53276676/icon-inside-button-not-centered-in-iphone */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+  }
+
+  /* The following are the Constant Settings/Styles in all pages */
+
+  /* Home button */
+  /* Using the same name in all Pages */
+  .b2{
+    position: absolute;
+    bottom: 25px;
+    right: 5px;
+    width: 50px;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: white; 
+    border: 2px solid transparent;
+  }
+  .b2:hover {
+    /* change color */
+    background-color: #e7e7e7;
+    color: white;
+    /* hover shadow */
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+  .b2:active {
+    background-color: #00000;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+  .bottomFooter{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
+
+  /* The sidebar */
+  .sidebar {
+    height: 100%; 
+    width: 0; 
+    position: fixed; 
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: black;
+    overflow-x: hidden; 
+    padding-top: 60px; 
+    transition: 0.5s; 
+  }
+  /* The sidebar links */
+  .sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: grey;
+    display: block;
+    transition: 0.3s;
+  }
+  .sidebar a:hover {
+    color: white;
+  }
+  .sidebar .closeButton {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  .openButton {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: transparent;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+  }
+  .openButton:hover {
+    background-color: #444;
+  }
+  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+  #main {
+    transition: margin-left .5s; /* If you want a transition effect */
+    padding: 20px;
+  }
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+  }
+
+  .content{
+    margin-left: 10vw;
+    margin-right: 10vw;
+    font-family: "Lucida Console", "Courier New", monospace;
+  }
+  .box{ max-width: 35vw;}
+  .box_align{ display: inline-flex;}
+  .box_align_margin{ margin-left: 10vw; }
+  .code{
+    width: 100%;
+    height: 50vh;
+    overflow:auto;
+    background-color: #2e3842;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  @media only screen and (max-width: 620px){
+    .content{
+      width: 100%;
+      margin: 0;
+    }
+    .box, .box_align{
+      max-width: 100%;
+      display: block;
+    }
+    .box_align_margin{
+      margin: 0;
+    }
+  }
+
+
+  </style>
+</head>
+<body>
+
+  <div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closeButton" onclick="closeNav()">&times;</a>
+    <a href="../AboutMe.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">About Me</b> </a>
+    <a href="https://drive.google.com/file/d/1sUz0Q3nxzcKmmvESOlINPyJkDoz2tYtR/view?usp=sharing" target="_blank"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Resume</b> </a>
+    <a href="../Projects.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand"><ion-icon name="terminal-outline"></ion-icon> Projects</b> </a>
+    <a href="../Albums.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Albums</b> </a>
+    <a href="" onclick="alert('Sorry! This pager is not available yet &#x1F625;');"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Foodie</b> </a>
+    <a href="../Contact.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Contact</b> </a>
+  </div>
+  <div id="main">
+    <div style="text-align:left">
+      <button class="openButton" onclick="openNav()">&#9776;</button>
+    </div>
+  </div>
+
+  <img src="Todots.jpg" style="width: 100%;">
+  
+  <div class="content">
+    <p style="color: grey;">Mobile Application/Group Prject</p>
+    <h1>Todots</h1>
+    <hr style="border: 3px solid white; border-radius: 10px;">
+
+    <div class="box_align">
+      <div class="box">
+        <h2>About</h2>
+        <p>Todots gives you the comfort you deserve and serves as a smart assistant which can keep all your tasks organized, so you can focus on doing the tasks rather than planning what to do. As students we realized what issues we faced with deadlines, not knowing how to start working on projects. We understand that tasks aren’t binary, they need more than just add/delete. That’s why we invented the Todos Task Life Stages: <br> 1.Planned 2.Started 3.50% 4.Done</p>
+      </div>
+      <div class="box">
+        <h2 class="box_align_margin">Timeline</h2>
+        <p class="box_align_margin">September 2021 &#8722; Present</p>
+        <h2 class="box_align_margin">Note</h2>
+        <p class="box_align_margin">This Group Project has been submitted on November 2021, however, there are improvements to be made, specified in the next section. Codes and implementation will be updated.</p>
+      </div>
+    </div>
+
+    <h2>Improvements to be done</h2>
+    <ul>
+      <li>Able to change Priority according to the time left</li>
+      <li>Able to checks the workload according to Task name</li>
+    </ul>
+
+    <hr><h2>Todots</h2>
+    <p>Todots is developed using cleient and server architechture, it allows users to assign 3 priority levels: #1, #2, #3, 1 being the most important. Apart from the user setting the priority of the work to be done by themself, the applications alters the priority according to the workload it senses or the time left for the particular assignment. Todots hopes to improve the overall user experience and work better with tasks.</p>
+    <hr><h2>System Architecture</h2>
+    <div class="box_align">
+      <div class="box">
+        <img src="Todots_system_struc.jpg" style="max-width: 100%; background-color: white;">
+      </div>
+      <div class="box">
+        <p class="box_align_margin">The application was implemented in client-server architecture and design for Android platform devices.</p>
+        <p class="box_align_margin">Todots consist of the following components: <br>
+          1.A login page 2.A registration page 3.Homepage 4.Adding task page 5.Database and 6.Server</p>
+        <p class="box_align_margin">The Login and Registration page simply allows users to login or create new account. All data including both the user name and the password will be stored in the database.</p>
+        <p class="box_align_margin">For the Homepage, user is able to choose either to DOWNLOAD all the tasks in the database or UPLOAD new tasks with customize deadline, states, and priority. Clicking on the button will not only navigate to different pages but also executes different php file in the backend.</p>
+      </div>
+    </div>
+    <p>The database stores all the data of the user, from username, user password to all the tasks and active status. In this project, we are using MySQL as our database. The database can only be accessed when the client, which is the phone the user is using, is connect to the server, given that the user has already registered an account.</p>
+    <p>The server act as a core element in the system apart from the client side. To interact with the server, client has to establish connection between them. Each server is assigned with unique IP address, which affects the URL. Based on the URL, the client executing the program is able to know where and who to connect with. Connecting with the server is the fundamental of using the application.</p>
+    <hr><h2 style="display: inline-flex;">Snipped Source Code</h2><p style="color: grey; display: inline-flex; margin: 10px; font-size: 5%;">Update: 1 MAR, 2022</p>
+    <div class="code"><pre style="max-width: 10%;"><span style="color: var(--purple)">package</span> <span style="color: var(--yellow)">com</span>.<span style="color: var(--yellow)">example</span>.<span style="color: var(--yellow)">registration</span>;
+
+<span style="color: var(--purple)">import</span> <span style="color: var(--blue)">android</span>.<span style="color: var(--blue)">content</span>.<span style="color: var(--blue)">Intent</span>;
+<span style="color: var(--purple)">import</span> <span style="color: var(--blue)">android</span>.<span style="color: var(--blue)">os</span>.<span style="color: var(--blue)">Bundle</span>;
+<span style="color: var(--purple)">import</span> <span style="color: var(--blue)">android</span>.<span style="color: var(--blue)">view</span>.<span style="color: var(--blue)">View</span>;
+<span style="color: var(--purple)">import</span> <span style="color: var(--blue)">android</span>.<span style="color: var(--blue)">widget</span>.<span style="color: var(--blue)">Button</span>;
+<span style="color: var(--purple)">import</span> <span style="color: var(--blue)">android</span>.<span style="color: var(--blue)">widget</span>.<span style="color: var(--blue)">EditText</span>;
+
+<span style="color: var(--purple)">import</span> <span style="color: var(--blue)">androidx</span>.<span style="color: var(--blue)">appcompat</span>.<span style="color: var(--blue)">app</span>.<span style="color: var(--blue)">AppCompatActivity</span>;
+
+<span style="color: var(--red)">public</span> <span style="color: var(--purple)">class</span> <span style="color: var(--yellow)">MainActivity</span> <span style="color: var(--purple)">extends</span> <span style="color: var(--green)">AppCompatActivity</span> {
+
+    <span style="color: var(--blue)">EditText</span> pas, usr;
+    <span style="color: var(--blue)">Button</span> switchTL;
+    <span style="color: var(--green)">@</span><span style="color: var(--blue)">Override</span>
+    <span style="color: var(--red)">protected</span> <span style="color: var(--purple)">void</span> <span style="color: var(--green)">onCreate</span>(<span style="color: var(--blue)">Bundle</span> <span style="color: var(--yellow)">savedInstanceState</span>) {
+        <span style="color: var(--red)">super</span>.<span style="color: var(--blue)">onCreate</span>(savedInstanceState);
+        <span style="color: var(--blue)">setContentView</span>(<span style="color: var(--blue)">R</span>.layout.activity_main);
+
+        usr <span style="color: var(--equal)">=</span> (<span style="color: var(--blue)">EditText</span>) <span style="color: var(--blue)">findViewById</span>(<span style="color: var(--blue)">R</span>.id.username);
+        pas <span style="color: var(--equal)">=</span> (<span style="color: var(--blue)">EditText</span>) <span style="color: var(--blue)">findViewById</span>(<span style="color: var(--blue)">R</span>.id.password);
+        switchTL <span style="color: var(--equal)">=</span> <span style="color: var(--blue)">findViewById</span>(<span style="color: var(--blue)">R</span>.id.LoginButton);
+        switchTL.<span style="color: var(--blue)">setOnClickListener</span>(<span style="color: var(--purple)">new</span> <span style="color: var(--blue)">View</span>.<span style="color: var(--blue)">OnClickListener</span>() {
+            <span style="color: var(--comments)">/**
+             * Called when a view has been clicked.
+             *
+             * @param v The view that was clicked.
+             */</span>
+            <span style="color: var(--green)">@</span><span style="color: var(--blue)">Override</span>
+            <span style="color: var(--red)">public</span> <span style="color: var(--purple)">void</span> <span style="color: var(--green)">onClick</span>(<span style="color: var(--blue)">View</span> <span style="color: var(--yellow)">v</span>) {
+                <span style="color: var(--blue)">startIntent</span>();
+            }
+        });
+    }
+    <span style="color: var(--red)">private</span> <span style="color: var(--purple)">void</span> <span style="color: var(--green)">startIntent</span>() {
+        <span style="color: var(--blue)">Intent</span> switchActivityIntent <span style="color: var(--equal)">=</span> <span style="color: var(--purple)">new</span> <span style="color: var(--blue)">Intent</span>(<span style="color: var(--red)">this</span>, <span style="color: var(--blue)">MainActivity2</span>.<span style="color: var(--red)">class</span>);
+        <span style="color: var(--blue)">startActivity</span>(switchActivityIntent);
+    }
+    <span style="color: var(--red)">public</span> <span style="color: var(--purple)">void</span> <span style="color: var(--green)">register</span>(<span style="color: var(--blue)">View</span> <span style="color: var(--yellow)">view</span>) {
+        <span style="color: var(--blue)">String</span> user <span style="color: var(--equal)">=</span> usr.<span style="color: var(--blue)">getText</span>().<span style="color: var(--blue)">toString</span>();
+        <span style="color: var(--blue)">String</span> pass <span style="color: var(--equal)">=</span> pas.<span style="color: var(--blue)">getText</span>().<span style="color: var(--blue)">toString</span>();
+        background bg <span style="color: var(--equal)">=</span> <span style="color: var(--purple)">new</span> <span style="color: var(--blue)">background</span>(<span style="color: var(--red)">this</span>);
+        bg.<span style="color: var(--blue)">execute</span>(user,pass);
+        usr.<span style="color: var(--blue)">setText</span>(<span style="color: var(--green)">""</span>);
+        pas.<span style="color: var(--blue)">setText</span>(<span style="color: var(--green)">""</span>);
+    }
+
+}</pre></div>
+<a href="https://github.com/BanjiBear/Todots" target="_blank" style="color: grey;"><p>Open Source Code</p></a>
+
+    <hr><h2>The Next Step</h2>
+    <h3 style="font-weight:normal">&#8594; Organize the file structure and the source codes</h3>
+    <h3 style="font-weight:normal">&#8594; Implement the function to alters the priority according to the workload it senses or the time left for the particular assignment</h3>
+
+    <hr><h2>Development Team</h2>
+    <a href="https://www.linkedin.com/in/yi-pu-chen-535040194" target="_blank" title="Tommy"><img src="banjibear.jpg" style="width:200px; height:200px; object-fit:cover; border-radius:50%; margin: 5px;"></a>
+    <a href="mailto:19053031d@connect.polyu.hk" target="_blank" title="Mathew"><img src="nobody.jpg" style="width:200px; height:200px; object-fit:cover; border-radius:50%; margin: 5px;"></a>
+
+  </div>
+
+
+
+  <div class="bottomFooter">
+    <button class="b2" style="font-size: 25px;" onclick="window.location.href='../index.html';"><i class="icon"><ion-icon name="person-outline"></ion-icon></i></button>
+  </div>  
+
+<script>
+
+  /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
+  function openNav() {
+    document.getElementById("mySidebar").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+  }
+
+  /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+  function closeNav() {
+    document.getElementById("mySidebar").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
+  }
+
+</script>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+</body>
+</html>
+
