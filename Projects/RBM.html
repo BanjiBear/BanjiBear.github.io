@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Meta is the information that will not be shown on the screen -->
+  <!-- author: The name of the webpage -->
+  <meta name="author" content="Banjibear">
+  <!-- Refreshes the webpage every x seconds: 60 for the surrent case -->
+  <meta name="refresh" content="60">
+  <!-- Setting the viewport to make your website look good on all devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Projects - RBM </title> <!-- Name or the tile shown on the tab -->
+  <style>
+
+  :root{
+    --purple: #cf91c9;
+    --yellow: #ffab42;
+    --blue: #4d80ad;
+    --red: #ff5261;
+    --green: #39b6b5;
+    --equal: #ff724c;
+    --comments: #9fa6b3;
+  }
+
+  body{
+    background-color: black;
+    color: ghostwhite;
+  }
+  ::selection{
+    color:  white;
+    background-color: green;
+  }
+  .icon {
+    /* Reference: https://stackoverflow.com/questions/53276676/icon-inside-button-not-centered-in-iphone */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+  }
+
+  /* The following are the Constant Settings/Styles in all pages */
+
+  /* Home button */
+  /* Using the same name in all Pages */
+  .b2{
+    position: absolute;
+    bottom: 25px;
+    right: 5px;
+    width: 50px;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: white; 
+    border: 2px solid transparent;
+  }
+  .b2:hover {
+    /* change color */
+    background-color: #e7e7e7;
+    color: white;
+    /* hover shadow */
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+  .b2:active {
+    background-color: #00000;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+  .bottomFooter{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
+
+  /* The sidebar */
+  .sidebar {
+    height: 100%; 
+    width: 0; 
+    position: fixed; 
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: black;
+    overflow-x: hidden; 
+    padding-top: 60px; 
+    transition: 0.5s; 
+  }
+  /* The sidebar links */
+  .sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: grey;
+    display: block;
+    transition: 0.3s;
+  }
+  .sidebar a:hover {
+    color: white;
+  }
+  .sidebar .closeButton {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  .openButton {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: transparent;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+  }
+  .openButton:hover {
+    background-color: #444;
+  }
+  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+  #main {
+    transition: margin-left .5s; /* If you want a transition effect */
+    padding: 20px;
+  }
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+  }
+
+  .content{
+    margin-left: 10vw;
+    margin-right: 10vw;
+    font-family: "Lucida Console", "Courier New", monospace;
+  }
+  .box{ max-width: 35vw;}
+  .box_align{ display: inline-flex;}
+  .box_align_margin{ margin-left: 10vw; }
+  .code{
+    width: 100%;
+    height: 50vh;
+    overflow:auto;
+    background-color: #2e3842;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  @media only screen and (max-width: 620px){
+    .content{
+      width: 100%;
+      margin: 0;
+    }
+    .box, .box_align{
+      max-width: 100%;
+      display: block;
+    }
+    .box_align_margin{
+      margin: 0;
+    }
+  }
+
+
+  </style>
+</head>
+<body>
+
+  <div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closeButton" onclick="closeNav()">&times;</a>
+    <a href="../AboutMe.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">About Me</b> </a>
+    <a href="https://drive.google.com/file/d/1sUz0Q3nxzcKmmvESOlINPyJkDoz2tYtR/view?usp=sharing" target="_blank"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Resume</b> </a>
+    <a href="../Projects.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand"><ion-icon name="terminal-outline"></ion-icon> Projects</b> </a>
+    <a href="../Albums.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Albums</b> </a>
+    <a href="" onclick="alert('Sorry! This pager is not available yet &#x1F625;');"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Foodie</b> </a>
+    <a href="../Contact.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Contact</b> </a>
+  </div>
+  <div id="main">
+    <div style="text-align:left">
+      <button class="openButton" onclick="openNav()">&#9776;</button>
+    </div>
+  </div>
+
+  <img src="RBM.jpg" style="width: 100%;">
+  
+  <div class="content">
+    <p style="color: grey;">Operating System Process Scheduling/Group Prject</p>
+    <h1>Room Booking Manager</h1>
+    <hr style="border: 3px solid white; border-radius: 10px;">
+
+    <div class="box_align">
+      <div class="box">
+        <h2>About</h2>
+        <p>Room Booking Manager (RBM) is a system that applies the theory of process scheduling of an OS to schedule bookings of facilities according to time and priority conditions</p>
+      </div>
+      <div class="box">
+        <h2 class="box_align_margin">Timeline</h2>
+        <p class="box_align_margin">January 2021 &#8722; April 2021</p>
+        <h2 class="box_align_margin">Note</h2>
+        <p class="box_align_margin"></p>
+      </div>
+    </div>
+
+
+    <hr><h2>Room Booking Manager</h2>
+    <h3>Introduction</h3>
+    <p>According to the scenario, PolySME Business Centre provides office facilities support to small business companies by the concept of shared office. In PolySME, there are three meeting rooms with different sizes available for booking by tenants. Besides, add-on facilities service i.e projectors, projector screen and webcams is provided for each meeting room based on tenant’s demand. However, these facilities are having different configurations.<br><br>Currently, tenants of PolySME simply make a booking of a meeting room, book a room equipped with special facilities or reserve the meeting facilities only. Only if all the requests are satisfied in the system, the booking request will be accepted; otherwise, rejection will be resulted. No alternative plan or reschedule booking will be provided when some of the requested item or room is not available for the requested time slot.<br><br>To achieve a better utilization rate and increase revenue, the current booking system has been revised with an improved scheduling or rescheduling algorithms. In order to find the best schedule, comparison of the performances of different algorithms on room scheduling will be implemented. Detailed discussion will be included in this project report in terms of scope, concept, structure of system, testing cases, performance analysis and program set up and execution.</p>
+
+    <h3>Scope</h3>
+    <p>This project covers several operating systems topics.<br><br>Room Booking system requested in this project should include system calls in order to exchange between user mode and kernel mode and keep the execution. Different types of system calls can be run on different operating systems, such as Linux, UNIX, MacOS or Windows.<br><br>“Process Management” includes the fork() system call in Linux. This allows the parent process to create the child process. Such a process will be executed immediately in order to provide a better scheduling on room booking reservations. Besides, the wait() system allows the parent process to wait until the child process finishes executing the process. These two system calls i.e. fork() and wait() are used for increasing the performance of the system.<br><br>Besides, inter-process communication and programming includes another important system call which is pipe(). It provides a communication means between processes, the parent processes or the child processes. If the parent is passing appointment details to a child scheduler, pipe() and associated write()/read() system calls will be used.<br><br>The input module allowing the user to insert the “|” for pipe and “>” for redirecting inputs in Unix/Linux. “|” pipe which allows previous process output to pass to the next process and be taken as input of the next process. Besides, “>” in Unix/Linux allows redirecting the output of the previous process to the next process. These basic commands have been covered in operating system topics, such as Unix and Linux programming.<br><br>This system requires room booking scheduling which arrange or organize the reservation request systematically based on the specific scheduling algorithm. The process scheduler determines which queues in the system will get the next service. The scheduling kernel is required to implement two or more scheduling algorithms. In the project, the scheduling will be done in the form of a child process created by the parent based on the selected algorithm.<br><br>The scheduling algorithms i.e. First-Come-First-Serve (FCFS) algorithm, Priority algorithm and multi-level queues are provided and act as a reference for the available scheduling algorithms in the scheduling kernel. Any other scheduling algorithms can also be included in this project and make comparison. Memory allocation algorithms i.e first-fit mechanism, best-fit mechanism and worst-fit mechanism can also be the reference of the scheduling algorithms used in scheduling kernels.</p>
+
+    <h3>Concept</h3>
+    <p>In this project, the algorithms used are mainly for scheduling booking requests. Considering the real situation in the room booking system, job swapping will increase quite a lot of turnover time and result in lower efficiency of the system. Therefore, scheduling algorithms with a high number of task switching will not be used in this project<br>.Here are two algorithms implemented in this project.<br><br><b>First-Come-First-Serve (FCFS) algorithm</b><br>FCFS scheduling supports non-preemptive and preemptive scheduling algorithms. It is easy to implement and use because processes are always executed on a first-come, first-serve basis. That means the process which requests the CPU first will get the CPU allocation first.<br><br>In the system, FCFS generates a working schedule which is easy to follow. Sudden change of the working schedule will not exist. As it will not permit a process which comes late to preempt the resources from current working processes. There will be no starvation occurring in such an algorithm because every process is treated fairly and no process will be preempted by other processes. However, convoy effects may happen when a single long process is blocking a number of processes.<br><br><b>Priority algorithm</b><br>A priority scheduling is based on the priority number of each process. CPU is allocated to the process with highest priority. For Windows systems, largest value in priority means highest priority while for Unix and Linux systems, smallest value means highest priority.In the booking system, highest priority will be given to “Conference”. The second one will be the “Presentation”. The third one will be “Meeting”. “Device” has the lowest priority. For example, a “Presentation” booking will displace an already scheduled “Meeting” booking. That means the “Meeting” booking will be canceled in such a situation. Thus, a previous “Accepted” status (i.e “Meeting”) can be turned to “Rejected” state by more important “Presentation” booking. The system will consider this order for scheduling the priority and decide which task needs to be done first. The scheduling kernel will push the task to the top of the schedule and fill in the available time slots first. Although such priority algorithms may lead to the low priority process, they get no chance of execution if a higher priority process keeps coming. Such a problem called starvation. One of the solutions is to upgrade the priority of the processes that wait for too long in certain periods and ensure a fairer usage of the CPU.<br><br></p>
+
+    <hr><h2>Program Structure</h2>
+    <div class="box_align">
+      <div class="box">
+        <img src="rbm_structure.jpg" style="max-width: 100%; background-color: white;">
+      </div>
+      <div class="box">
+        <p class="box_align_margin">This system includes 3 component modules which are drawn in a rectangle with sharp edges in the diagram. They are the input module, scheduling module and reporting module.</p>
+        <p class="box_align_margin">In the Room Booking system, the parent process includes an input module, from which the program can be run by the user. Input module accepts the user's input by inserting commands and order records. There will be a batching input in the parent process. Batching module will accept user input in a batch file to the system for room booking scheduling. The file will be processed and the data will be passed to the input module for further processes.</p>
+      </div>
+    </div>
+    <p>After the input module in the parent process receives users’ input, the parent process will create two child processes, one is for scheduling module and another one is for reporting module.</p>
+    <p>Scheduling module will perform requested scheduling algorithms on the received data from the input module in the parent process. The computed result in the scheduling module will be passed via a named pipe to reporting module. The reporting module inside another child process initiated by the parent process. The reporting module will read the scheduled output in the named pipe. The reporting module will show the result from the scheduling module to the users.</p>
+    <p>The system also allows the users to output the result as a file. Reporting module will then pass the result to the output file and write an output file for users.</p>
+
+    <hr><h2 style="display: inline-flex;">Snipped Source Code</h2><p style="color: grey; display: inline-flex; margin: 10px; font-size: 5%;">Update: 2 MAR, 2022</p>
+    <div class="code"><pre style="max-width: 10%;">int main(int argc, char *argv[]){
+
+  printf("\n");
+  printf("~~ WELCOME TO PolySME ~~\n"); // Print the welcome message
+
+  // pipe creation
+  int i, j, n;
+  int p2cfd[15][2]; // parent to child pipes
+  int c2pfd[15][2]; // child to parent pipes
+  
+  for (i = 0; i < 15; i++){
+    if (pipe(p2cfd[i]) < 0){
+      printf("Errors when creating pipes!\n");
+      exit(1);
+    }
+    if (pipe(c2pfd[i]) < 0){
+      printf("Errors when creating pipes!\n");
+      exit(1);
+    }
+  }
+  
+  // child processes creation and initialization
+  int parentid, myid, pid, index = -1;
+  int timeslots[7][24]; // the test schedule is seven days (5.10-5.16)
+  char message[30] = {0};
+  parentid = getpid();
+  for (i = 0; i < 15; i++){ // create 15 child processes
+    if (getpid() == parentid){
+      fork();
+      if (getpid() != parentid) index = i;
+    }
+  }
+
+  // test
+  //printf("test: %d\n", index);
+  
+  if (index != -1){
+    // test
+    //printf("Child: %d %d\n", getpid(), index);
+
+    // child processes
+    // index: 0, 1, 2 -> room
+    // index: 3, 4, 5 -> webcams
+    // index: 6, 7, 8 -> monitors
+    // index: 9, 10, 11 -> projectors
+    // index: 12, 13, 14 -> projection screens
+    // message format:  YYYY-MM-DD hh:mm n.n
+    // message example: 2021-05-16 10:00 3.0
+    
+    // close unused ends of pipes
+    close(p2cfd[index][1]);
+    close(c2pfd[index][0]);
+    
+    // read from parent process
+    while ((n = read(p2cfd[index][0], message, 30)) > 0){
+      // test
+      //printf("test: %s %d %d\n", message, getpid(), index);
+      // initialize
+      int startPoint = 0;
+      int valid = 1;
+      char date[11] = {0}; char time[6] = {0}; char duration[5] = {0};
+      // terminate
+      if (message[0] == 't') break;
+      // initialize the timeslots
+      if (message[0] == 'i'){
+        for (i = 0; i < 7; i++){
+          for (j = 0; j < 24; j++) timeslots[i][j] = 0;
+        }
+        continue;
+      }
+      // accept the booking
+      if (message[0] == 'a'){
+        for (i = 0; i < 7; i++){
+          for (j = 0; j < 24; j++){
+            if (timeslots[i][j] == 2) timeslots[i][j] = 1;
+          }
+        }
+        continue;
+      } 
+      // reject the booking
+      if (message[0] == 'r'){
+        for (i = 0; i < 7; i++){
+          for (j = 0; j < 24; j++){
+            if (timeslots[i][j] == 2) timeslots[i][j] = 0;
+          }
+        }
+        continue;
+      }
+      // calculate utilization of timeslots
+      if (message[0] == 's'){
+          int utilized = 0;
+          char utilization[6] = {0};
+          for (i = 0; i < 7; i++){
+              for (j = 0; j < 24; j++){
+                  if (timeslots[i][j] == 1) utilized++;
+              }
+          }
+          sprintf(utilization, "%d", utilized);
+          write(c2pfd[index][1], utilization, 6);
+          continue;
+      }
+      
+      // test
+      //printf("test: %s %d %d\n", message, getpid(), index);
+
+      // message handling
+      // date: 
+      for (i = startPoint; i < 30; i++){
+        if (message[i] == ' '){
+          for (j = startPoint; j < i; j++) date[j-startPoint] = message[j];
+          startPoint = i+1;
+          break;
+        }
+      }
+      for (i = startPoint; i < 30; i++){
+        if (message[i] == ' '){
+          for (j = startPoint; j < i; j++) time[j-startPoint] = message[j];
+          startPoint = i+1;
+          break;
+        }
+      }
+      for (i = startPoint; i < 30; i++){
+        if (message[i] == '.'){
+          for (j = startPoint; j <= i+1; j++) duration[j-startPoint] = message[j];
+          break;
+        }
+      }
+
+      // test 
+      //printf("test:\n");
+      //printf("date: %s\n", date);
+      //printf("time: %s\n", time);
+      //printf("duration: %s\n", duration);
+  
+      // check whether the requested time slot is idle
+      char day[6] = {0}; char hour[6] = {0}; char dura[10] = {0};
+
+      for (i = 10; i >= 0; i--){
+        if (date[i] == '-'){
+          for (j = i+1; j <= 10; j++) day[j-i-1] = date[j];
+          break;
+        }
+      }
+      strncpy(hour, time, 2);
+      hour[2] = '\0';
+      for (i = 0; i < 10; i++){
+        if (duration[i] == '.'){
+          for (j = 0; j < i; j++) dura[j] = duration[j];
+          break;
+        }
+      }
+
+      int intDay = atoi(day);
+      int h = atoi(hour);
+      int d = atoi(dura);
+
+      // test
+      //printf("test:\n");
+      //printf("date: %d\n", intDay);
+      //printf("hour: %d\n", h);
+      //printf("duration: %d\n", d);
+
+      for (i = h; i < h+d; i++){ // check timeslots
+        if (i < 24){
+          if (timeslots[intDay-10][i] == 1){
+            valid = 0;
+            break;
+          }
+        }
+        else{
+          if (timeslots[intDay-10+1][i-24] == 1){
+            valid = 0;
+            break;
+          }
+        }
+      }
+
+      // test
+      //printf("test: \n");
+      //for (i = 0; i < 7; i++){
+      //  for (j = 0; j < 24; j++){
+      //    printf("%d ", timeslots[i][j]);
+      //  }
+      //  printf("\n");
+      //}
+      //printf("valid: %d\n", valid);
+
+      if (valid == 1){ // the request can be fulfilled
+        for (i = h; i < h+d; i++){
+          if (i < 24){
+            timeslots[intDay-10][i] = 2;
+          }
+          else{
+            timeslots[intDay-10+1][i-24] = 2;
+          }
+        }
+        write(c2pfd[index][1], "1", 2); // 1 indicates valid request
+      }
+      else{ // the request cannot be fulfilled
+        write(c2pfd[index][1], "0", 2); // 0 indicates invalid request
+      } 
+    }
+    // close other ends of pipes
+    close(c2pfd[index][1]);
+    close(p2cfd[index][0]);
+    
+    exit(0);
+  }
+  else if (getpid() == parentid){ 
+      // parent process
+      // Handle the user input and decide the command type
+      // printf("Parent\n");  //For debugging
+    
+    // close unused ends of pipes
+    for (i = 0; i < 15; i++){
+        close(p2cfd[i][0]);
+        close(c2pfd[i][1]);
+    }
+
+      // clear all records in the text file
+      FILE *booking = fopen("Booking.txt", "wb"); // this file is for fcfs 
+      FILE *conference = fopen("Conference.txt", "wb"); // the following four files are for priority
+      FILE *presentation = fopen("Presentation.txt", "wb");
+      FILE *meeting = fopen("Meeting.txt", "wb");
+      FILE *device = fopen("Device.txt", "wb");
+      FILE *invalid = fopen("Invalid.txt", "wb"); // this file is to store invalid requests
+      fclose(booking);
+      fclose(conference);
+      fclose(presentation);
+      fclose(meeting);
+      fclose(device);
+      fclose(invalid);
+
+      while(1){
+        // gets input from the user
+        char input[1024] ={0};
+        printf("Please enter booking: \n");   // Prompt the user to enter inputs
+        fgets(input, 1024, stdin);
+          
+        // test
+        //printf("%s\n", input);
+
+        // handle the booking request
+        int code = 0;
+        code = processRequest(input, p2cfd, c2pfd);
+        if (code == 1){
+          // print ending messages
+          printf("-> Bye!\n");
+          // send termination messages to all childs
+          for (i = 0; i < 15; i++){
+            write(p2cfd[i][1], "t", 2);
+          }
+          // close other ends of pipes
+          for (i = 0; i < 15; i++){
+            close(p2cfd[i][1]);
+            close(c2pfd[i][0]);
+          }
+          break;
+        }
+      }
+  }
+  
+  // ending
+  wait(NULL);
+  exit(0);
+}</pre></div>
+<a href="https://github.com/BanjiBear/Room-Booking-Manager-RBM-" target="_blank" style="color: grey;"><p>Open Source Code</p></a>
+
+    <hr><h2>Development Team</h2>
+    <a href="https://www.linkedin.com/in/yi-pu-chen-535040194" target="_blank" title="Tommy"><img src="banjibear.jpg" style="width:200px; height:200px; object-fit:cover; border-radius:50%; margin: 5px;"></a>
+    <a href="" target="_blank" title="Bruce"><img src="nobody.jpg" style="width:200px; height:200px; object-fit:cover; border-radius:50%; margin: 5px;"></a>
+    <a href="" target="_blank" title="LIANG Rui"><img src="nobody.jpg" style="width:200px; height:200px; object-fit:cover; border-radius:50%; margin: 5px;"></a>
+    <a href="" target="_blank" title="LIU Sicheng"><img src="nobody.jpg" style="width:200px; height:200px; object-fit:cover; border-radius:50%; margin: 5px;"></a>
+    <a href="" target="_blank" title="CHEUNG, Man Fung"><img src="nobody.jpg" style="width:200px; height:200px; object-fit:cover; border-radius:50%; margin: 5px;"></a>
+
+  </div>
+
+
+
+  <div class="bottomFooter">
+    <button class="b2" style="font-size: 25px;" onclick="window.location.href='../index.html';"><i class="icon"><ion-icon name="person-outline"></ion-icon></i></button>
+  </div>  
+
+<script>
+
+  /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
+  function openNav() {
+    document.getElementById("mySidebar").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+  }
+
+  /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+  function closeNav() {
+    document.getElementById("mySidebar").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
+  }
+
+</script>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+</body>
+</html>
+
