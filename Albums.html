@@ -13,7 +13,15 @@
   <style>
 
   html, body{
+    background-color: darkgrey;
     margin: 0px;
+  }
+  .icon {
+      /* Reference: https://stackoverflow.com/questions/53276676/icon-inside-button-not-centered-in-iphone */
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%)
   }
 
   /* Home button */
@@ -137,6 +145,17 @@
     background-image: url("./Gallery/Taiwan.jpg");
   }
 
+  @media only screen and (max-width: 620px) {
+    html, body{
+      background-size: cover;
+      overflow-x: hidden;
+    }
+    .verticalBars{
+      font: 10vw Bradley Hand;
+      line-height: 100vh;
+    }
+  }
+
   </style>
 </head>
 <body>
@@ -160,13 +179,13 @@
   <div class="verticalBars">Uni Life</div>
   <div class="verticalBars Taiwan">Taiwan</div>
   <div class="verticalBars">Daily</div>
-  <div class="verticalBars Memories">Memories and Good Old days</div>
+  <div class="verticalBars Memories">Memories</div>
   <div class="verticalBars">Food</div>
   <div class="verticalBars FrindsandFam">Frinds and Fam</div>
 
 
   <div class="bottomFooter">
-    <button class="b2" style="font-size: 25px;" onclick="window.location.href='index.html';" title="Back to the Homepage"><ion-icon name="person-outline"></ion-icon></button>
+    <button class="b2" style="font-size: 25px;" onclick="window.location.href='index.html';" title="Back to the Homepage"><i class="icon"><ion-icon name="person-outline"></ion-icon></i></button>
   </div>
 
 <script>
