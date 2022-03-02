@@ -8,12 +8,26 @@
   <meta name="refresh" content="60">
   <!-- Setting the viewport to make your website look good on all devices -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Banjibear - Projects </title> <!-- Name or the tile shown on the tab -->
+  <title> Projects - Monopoly </title> <!-- Name or the tile shown on the tab -->
   <style>
+
+  :root{
+    --purple: #cf91c9;
+    --yellow: #ffab42;
+    --blue: #4d80ad;
+    --red: #ff5261;
+    --green: #39b6b5;
+    --equal: #ff724c;
+    --comments: #9fa6b3;
+  }
 
   body{
     background-color: black;
     color: ghostwhite;
+  }
+  ::selection{
+    color:  white;
+    background-color: green;
   }
   .icon {
     /* Reference: https://stackoverflow.com/questions/53276676/icon-inside-button-not-centered-in-iphone */
@@ -114,34 +128,36 @@
     .sidebar a {font-size: 18px;}
   }
 
-  /* Project Container */
-  .Project_Container{
-    margin-left: 5vw;
-    margin-top: 5vh;
-    width: 40vw;
+  .content{
+    margin-left: 10vw;
+    margin-right: 10vw;
+    font-family: "Lucida Console", "Courier New", monospace;
+  }
+  .box{ max-width: 35vw;}
+  .box_align{ display: inline-flex;}
+  .box_align_margin{ margin-left: 10vw; }
+  .code{
+    width: 100%;
     height: 50vh;
-    border-style: solid;
-    border-color: white;  /* https://www.w3schools.com/css/css_border_color.asp */
-  }
-  .Project_Container:hover{
-    border-style: solid;
-    border-color: transparent;  /* https://www.w3schools.com/css/css_border_color.asp */
-    opacity: 0.3;
-  }
-  .containerFlex{
-    display:flex;
+    overflow:auto;
+    background-color: #2e3842;
+    border-radius: 10px;
+    padding: 10px;
   }
   @media only screen and (max-width: 620px){
-    .Project_Container{
-      margin-left: 0;
-      margin-top: 5vh;
+    .content{
       width: 100%;
-      height: 50%;
+      margin: 0;
     }
-    .containerFlex{
-      display:block;
+    .box, .box_align{
+      max-width: 100%;
+      display: block;
+    }
+    .box_align_margin{
+      margin: 0;
     }
   }
+
 
   </style>
 </head>
@@ -149,12 +165,12 @@
 
   <div id="mySidebar" class="sidebar">
     <a href="javascript:void(0)" class="closeButton" onclick="closeNav()">&times;</a>
-    <a href="AboutMe.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">About Me</b> </a>
+    <a href="../AboutMe.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">About Me</b> </a>
     <a href="https://drive.google.com/file/d/1sUz0Q3nxzcKmmvESOlINPyJkDoz2tYtR/view?usp=sharing" target="_blank"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Resume</b> </a>
-    <a href="Projects.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand"><ion-icon name="terminal-outline"></ion-icon> Projects</b> </a>
-    <a href="Albums.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Albums</b> </a>
+    <a href="../Projects.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand"><ion-icon name="terminal-outline"></ion-icon> Projects</b> </a>
+    <a href="../Albums.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Albums</b> </a>
     <a href="" onclick="alert('Sorry! This pager is not available yet &#x1F625;');"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Foodie</b> </a>
-    <a href="Contact.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Contact</b> </a>
+    <a href="../Contact.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Contact</b> </a>
   </div>
   <div id="main">
     <div style="text-align:left">
@@ -162,34 +178,62 @@
     </div>
   </div>
 
-  <div class="containerFlex">
-    <div class="Project_Container">
-      <a href="./Projects/SiliconCoppelia.html"><img src="./images/Projects/Coppelia.jpg" style="max-width: 100%; width:100%; height: 100%; background-size: contain;"></a>
+  <img src="Todots.jpg" style="width: 100%;">
+  
+  <div class="content">
+    <p style="color: grey;">Mobile Application/Group Prject</p>
+    <h1>Monopoly</h1>
+    <hr style="border: 3px solid white; border-radius: 10px;">
+
+    <div class="box_align">
+      <div class="box">
+        <h2>About</h2>
+        <p></p>
+      </div>
+      <div class="box">
+        <h2 class="box_align_margin">Timeline</h2>
+        <p class="box_align_margin">September 2021 &#8722; Present</p>
+        <h2 class="box_align_margin">Note</h2>
+        <p class="box_align_margin"></p>
+      </div>
     </div>
-    <div class="Project_Container">
-      <a href="./Projects/Todots.html"><img src="./images/Projects/Todots.jpg" style="max-width: 100%; width:100%; height: 100%; background-size: contain;"></a>
+
+    <h2>Improvements to be done</h2>
+    <ul>
+      <li>Able to change Priority according to the time left</li>
+      <li>Able to checks the workload according to Task name</li>
+    </ul>
+
+    <hr><h2>Monopoly</h2>
+    <p></p>
+
+    <hr><h2>System Architecture</h2>
+    <div class="box_align">
+      <div class="box">
+        <img src="Todots_system_struc.jpg" style="max-width: 100%; background-color: white;">
+      </div>
+      <div class="box">
+        <p class="box_align_margin"></p>
+      </div>
     </div>
+
+    <hr><h2 style="display: inline-flex;">Snipped Source Code</h2><p style="color: grey; display: inline-flex; margin: 10px; font-size: 5%;">Update: 1 MAR, 2022</p>
+    <div class="code"><pre style="max-width: 10%;"></pre></div>
+<a href="https://github.com/BanjiBear/Todots" target="_blank" style="color: grey;"><p>Open Source Code</p></a>
+
+    <hr><h2>The Next Step</h2>
+    <h3 style="font-weight:normal">&#8594; Organize the file structure and the source codes</h3>
+    <h3 style="font-weight:normal">&#8594; Implement the function to alters the priority according to the workload it senses or the time left for the particular assignment</h3>
+
+    <hr><h2>Development Team</h2>
+    <a href="https://www.linkedin.com/in/yi-pu-chen-535040194" target="_blank" title="Tommy"><img src="banjibear.jpg" style="width:200px; height:200px; object-fit:cover; border-radius:50%; margin: 5px;"></a>
+
   </div>
-  <div class="containerFlex">
-    <div class="Project_Container">
-      <a href="./Projects/FileSys.html"><img src="./images/Projects/FileSystem.jpg" style="max-width: 100%; width:100%; height: 100%; background-size: contain;"></a>
-    </div>
-    <div class="Project_Container">
-      <a href="./Projects/Socket.html"><img src="./images/Projects/SocketProgramming.jpg" style="max-width: 100%; width:100%; height: 100%; background-size: contain;"></a>
-    </div>
-  </div>
-  <div class="containerFlex">
-    <div class="Project_Container">
-      <a href="./Projects/RBM.html"><img src="./images/Projects/RBM.jpg" style="max-width: 100%; width:100%; height: 100%; background-size: contain;">
-    </div>
-    <div class="Project_Container">
-      <a href="./Projects/Monopoly.html"><img src="./images/Projects/Monopoly.jpg" style="max-width: 100%; width:100%; height: 100%; background-size: contain;">
-    </div>
-  </div>
+
 
 
   <div class="bottomFooter">
-    <button class="b2" style="font-size: 25px;" onclick="window.location.href='index.html';"><i class="icon"><ion-icon name="person-outline"></ion-icon></i></button>
+    <button class="b2" style="font-size: 25px;" onclick="window.location.href='../index.html';"><i class="icon"><ion-icon name="person-outline"></ion-icon></i></button>
   </div>  
 
 <script>
@@ -210,6 +254,7 @@
 
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
 
 </body>
 </html>
