@@ -16,7 +16,7 @@
 		margin: 0;
 		background-attachment: fixed; /* html float fixed background */
 		
-		background-image: url("/images/beach.jpg");
+		background-image: url("./images/beach.jpg");
 		background-color: #bbb;
 		height: 800px;
 		background-position: center;
@@ -27,6 +27,13 @@
 	::selection{
 		color:  white;
 		background-color: green;
+	}
+	.icon {
+	    /* Reference: https://stackoverflow.com/questions/53276676/icon-inside-button-not-centered-in-iphone */
+	    position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    transform: translate(-50%, -50%)
 	}
 
 	/* Home button */
@@ -142,6 +149,7 @@
 	/* Slideshow container */
 	.slideshow-container {
 		max-width: 800px;
+		height:600px;
 		margin-left: 100px;
 		position: relative;
 		margin: auto;
@@ -172,10 +180,44 @@
 		width: 250px;
 		height: 250px;
 		border-radius: 50%;
-
-		margin-left: 100px;
 		object-fit: cover;
-		object-position: center right;
+	}
+	.box{ max-width: 35vw;}
+  	.box_align{ display: inline-flex;}
+  	.box_align_margin{ margin-left: 10vw; }
+
+  	.endImg{
+  		max-width: 800px; 
+  		margin-left: 100px; 
+  		border-radius: 20px;"
+  	}
+
+	@media only screen and (max-width: 620px) {
+		html, body{
+			background-size: cover;
+			overflow-x: hidden;
+		}
+		.contentContainer{
+			width: 80%;
+		}
+		.slideshow-container{
+			margin-left: 0;
+			width: 100%;
+			height:200px;
+		}
+		.roundSelfie{
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.box, .box_align{
+			max-width: 100%;
+			display: block;
+		}
+		.endImg{
+			width: 100%;
+			margin-left: 0;
+		}
 	}
 	</style>
 </head>
@@ -199,39 +241,46 @@
 	<div class="contentContainer">
 		<h1 class="contentTextLeftMargin">Hi, I'm Tommy</h1>
 		<h1 class="contentTextLeftMargin">Imma 21 years old outgoing boy from Taiwan, currently living in Hong Kong majoring in Computer Science at Hong Kong Polytechnic University</h1>
-		<img src="/images/yipu2.jpg" class="roundSelfie">
-		<img src="/images/yipu3.jpg" class="roundSelfie">
+
+		<div class="box_align">
+	      <div class="box">
+	        <img src="./images/yipu2.jpg" class="roundSelfie box_align_margin">
+	      </div>
+	      <div class="box">
+	        <img src="./images/yipu3.jpg" class="roundSelfie box_align_margin">
+	      </div>
+    	</div> 
+		
 		<p class="contentTextLeftMargin">You might not know where Taiwan is...<br>
 		Well, it's a country in East Asia, with a population of 23+ million, Taiwan is an island surrounded by sea. The island has many different views, food, and natural landscapes. Taiwan is also famous for its fruits, known as the kingdom of fruits</p>
-		<video style=" margin-left: 100px; width:800px; border-radius: 20px;" autoplay muted>
-			<source src="Taiwan.mp4" type="video/mp4">
-		</video>
+
 		<div class="slideshow-container">
 			<div class="mySlides fade">
-				<img src="/images/101.jpeg" style="width:100%; border-radius: 20px;">
+				<img src="./images/101.jpeg" style="width:100%; border-radius: 20px;">
 			</div>
 			<div class="mySlides fade">
-				<img src="/images/Central.jpeg" style="width:100%; border-radius: 20px;">
+				<img src="./images/Central.jpeg" style="width:100%; border-radius: 20px;">
 			</div>
 			<div class="mySlides fade">
-				<img src="/images/TaiChung.png" style="width:100%; border-radius: 20px;">
+				<img src="./images/TaiChung.png" style="width:100%; border-radius: 20px;">
 			</div>
 			<div class="mySlides fade">
-				<img src="/images/BlueTears.jpeg" style="width:100%; border-radius: 20px;">
+				<img src="./images/BlueTears.jpeg" style="width:100%; border-radius: 20px;">
 			</div>
 			<div class="mySlides fade">
-				<img src="/images/Penghu.jpeg" style="width:100%; border-radius: 20px;">
+				<img src="./images/Penghu.jpeg" style="width:100%; border-radius: 20px;">
 			</div>
 			<div class="mySlides fade">
-				<img src="/images/QueenHead.jpeg" style="width:100%; border-radius: 20px;">
+				<img src="./images/QueenHead.jpeg" style="width:100%; border-radius: 20px;">
 			</div>
 			<div class="mySlides fade">
-				<img src="/images/Bao.jpeg" style="width:100%; border-radius: 20px;">
+				<img src="./images/Bao.jpeg" style="width:100%; border-radius: 20px;">
 			</div>
 			<div class="mySlides fade">
-				<img src="/images/food.jpeg" style="width:100%; border-radius: 20px;">
+				<img src="./images/food.jpeg" style="width:100%; border-radius: 20px;">
 			</div>
 		</div>
+
 		<p class="contentTextLeftMargin">Let's talk more about myself:  <br>
 		Though I'm an engineering student, I love cooking, singing and dancing. Might not be obvious but I do make good and tasty dishes! During the past three years, I've been a member of the dance team at my Uni. In terms of music, I played guitars and violins. My favorite singers include Taylor Swift, James Blunt, Ed Sheeran, Avicii, Jonas Blue...., just to name a few. Music is very important to me, in addition to being a reflection of my mood, it is also a symbol of memory.<br><br>
 
@@ -240,11 +289,11 @@
 		My dream job is to work as a Software Enginner and....travel all around the world with my friends and fam. Life is really damn SHORT! Theres so much I wanna do. But right now, I'm suffering from homesick and still struggling with my studies, researches, and my internship. If you're hiring and currently looking at my personal webpage, plzzzzz contact me~. Love you so much!<br><br>
 
 		After all dis, go check the Albums page for some of my FANTASTIC moments in my life. Or, if you're interested in my professional skills, take a look at my Resume, also in the sidebar.</p>
-		<img src="/images/beach.jpg" style="max-width: 800px; margin-left: 100px; width:100%; border-radius: 20px;">
+		<img src="./images/beach.jpg" class="endImg">
 	</div>
 
 	<div class="bottomFooter">
-		<button class="b2" style="font-size: 25px;" onclick="window.location.href='index.html';" title="Back to the Homepage"><ion-icon name="person-outline"></ion-icon></button>
+		<button class="b2" style="font-size: 25px;" onclick="window.location.href='index.html';" title="Back to the Homepage"><i class="icon"><ion-icon name="person-outline"></ion-icon></i></button>
 	</div>	
 
 <script>
