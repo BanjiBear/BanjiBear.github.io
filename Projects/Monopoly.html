@@ -178,21 +178,21 @@
     </div>
   </div>
 
-  <img src="Todots.jpg" style="width: 100%;">
+  <img src="Monopoly.jpg" style="width: 100%;">
   
   <div class="content">
-    <p style="color: grey;">Mobile Application/Group Prject</p>
+    <p style="color: grey;">Software Engineering Process/OOP/Group Prject</p>
     <h1>Monopoly</h1>
     <hr style="border: 3px solid white; border-radius: 10px;">
 
     <div class="box_align">
       <div class="box">
         <h2>About</h2>
-        <p></p>
+        <p>The Monopoly game is played with a board divided into 20 squares, and a pair of four-sided (tetrahedral) dice and it can accommodate two to six players. Besides playing the game, Players should also be able to save and load a game.</p>
       </div>
       <div class="box">
         <h2 class="box_align_margin">Timeline</h2>
-        <p class="box_align_margin">September 2021 &#8722; Present</p>
+        <p class="box_align_margin">September 2021 &#8722; November 2021</p>
         <h2 class="box_align_margin">Note</h2>
         <p class="box_align_margin"></p>
       </div>
@@ -200,33 +200,329 @@
 
     <h2>Improvements to be done</h2>
     <ul>
-      <li>Able to change Priority according to the time left</li>
-      <li>Able to checks the workload according to Task name</li>
+      <li>Improve the UI design</li>
+      <li>Make changes to improve the fluency of the game</li>
     </ul>
 
     <hr><h2>Monopoly</h2>
-    <p></p>
+    <p>The Game is Designed for Mac and Linix users written in Python. Monopoly accepts 2-6 players at a time and provides loading and storing game status. Without the need of installing pygame, the game is displayed and played through terminals</p>
+    <p>The game works as follows:</p>
+    <ul>
+      <li>Players have money and can own properties. Each player starts with HKD 1500 and no property.</li>
+      <li>All players start from the first square (“Go”).</li>
+      <li>Players take turns in rolling the dice and advancing their respective tokens clockwise on the board. After reaching square 20, a token moves to square 1 again.</li>
+      <li>Certain squares take effect on a player when her token passes or lands on the square. For example, they can change the player’s amount of money.</li>
+      <li>If after taking a turn a player has a negative amount of money, she retires from the game. All her properties become unowned.</li>
+      <li>A round consists of all players taking their turns once.</li>
+      <li>The game ends either if there is only one player left or after 100 rounds. The winner is the player with the most money at the end of the game. Ties (multiple winners) are possible.</li>
+    </ul>
 
-    <hr><h2>System Architecture</h2>
-    <div class="box_align">
-      <div class="box">
-        <img src="Todots_system_struc.jpg" style="max-width: 100%; background-color: white;">
-      </div>
-      <div class="box">
-        <p class="box_align_margin"></p>
-      </div>
-    </div>
+    <hr><h2>README and Program Installation</h2>
+    <p>Pre-Requisite: Only a few prerequisite steps to get started playing our Monopoly game!</p>
+    <p>OS Requirements: macOS 10.4+ / Linux (Kernel 3.14+)</p>
+    <p>Software Requirements: Python3: Python3 comes preinstalled in both macOS and all major Linux Distributions. Confirm that python3 is installed by opening the terminal and typing python3 --version. If you see a python version, then we’re good to go! If not, click here to install: <a style="color: grey;" href="https://www.w3computing.com/python/installing-python-windows-macos-linux/" target="_blank">link</p></a>
+    <p>Compiling and Running:</p>
+    <ol>
+      <li>Open Terminal: Simply open up the terminal on your macOS / Linux computer.</li>
+      <li>Locate the downloaded game folder: Assuming the game is in downloads folder, type cd Downloads/Group20Project/Monopoly</li>
+      <li>Now simply type python3 init.py</li>
+      <li>Game is ready!</li>
+    </ol>
 
     <hr><h2 style="display: inline-flex;">Snipped Source Code</h2><p style="color: grey; display: inline-flex; margin: 10px; font-size: 5%;">Update: 1 MAR, 2022</p>
-    <div class="code"><pre style="max-width: 10%;"></pre></div>
-<a href="https://github.com/BanjiBear/Todots" target="_blank" style="color: grey;"><p>Open Source Code</p></a>
+    <div class="code"><pre style="max-width: 10%;">def main():
+    os.system("python3 animation.py")
+    return welcome()
 
-    <hr><h2>The Next Step</h2>
-    <h3 style="font-weight:normal">&#8594; Organize the file structure and the source codes</h3>
-    <h3 style="font-weight:normal">&#8594; Implement the function to alters the priority according to the workload it senses or the time left for the particular assignment</h3>
+def welcome():
+    os.system("clear")
+
+    for i in range(15):
+        print("")
+    print("Hello! Dear players~\r")
+    gameLoadCheck = input("Please type in \'y\' or \'Y\' if you want to load a saved game\nOr random key to continue: ")
+    if(gameLoadCheck == 'Y' or gameLoadCheck == 'y'):
+        return LoadGame()
+    else:
+        clear()
+        loading()
+        while True:
+            playerNumCheck = input("Please type in the number of players: ")
+            if(playerNumCheck <= '6' and playerNumCheck >= '2'):
+                playerNumCheck = int(playerNumCheck)
+                clear()
+                break
+            else:
+                clear()
+                print("CAUTION: Number of players should be between 2 to 6.")
+        for i in range(playerNumCheck):
+            Name = input("Hi there, what is your name? ")
+            playerName[i] = Name
+        for i in range(playerNumCheck):
+            Money[i] = 1500
+    clear()
+
+    for i in range(playerNumCheck):
+        print("Player", ": ", end = "")
+        print(playerName[i])
+    print("Randomizing Player order....\n")
+    loading()
+    for i in range(playerNumCheck):  
+        while True: 
+            order = random.randint(1, playerNumCheck)
+            if(playerOrder[order - 1] == ''):
+                playerOrder[order - 1] = playerName[i]
+                break
+    global playerN
+    playerN = playerNumCheck
+    global current_Player
+    current_Player = playerOrder[0]
+    while True:
+        print("Player Order:")
+        for i in range(playerN):
+            print(playerOrder[i], end = " ")
+        print("")
+        Proceed = int(input("Enter 1 to continue the game or 2 to save and play later: "))
+        loading()
+        if(Proceed == 1):
+            return StartGame()
+        elif(Proceed == 2):
+            clear()
+            return SaveGame()
+            # print("Game Saved Successfully.\nSee you next time~\r\r")
+        else:
+            clear()
+            print("CAUTION: Please type in only 1 or 2.")
+
+def DisplayGameOver():
+    global Money, playerName, playerN
+    print("GAME OVER!")
+    loading()
+    loading()
+    clear()
+    indeX = Money.index(max(Money))
+    winner = playerName[indeX]
+    for i in range(playerN):
+        if(Money[i] == max(Money)):
+            if(indeX == i):
+                continue
+            else:
+                winner = winner + " and " + playerName[i]
+    print("GAME OVER!")
+    print("The Winner is...")
+    print(winner, "!!!!")
+    print("")
+    exit(0)
+
+def StartGame():
+    # Determine Player order
+    global playerN, current_Player, playerName, playerOrder, playerPosition, Round, inJail, properties_possession, option, res, mes, Money, jailCnt, doubles
+    
+    counter = 0
+    for i in playerName:
+        if(i != ""):
+            counter = counter + 1
+    while(Round <= 100 and counter > 1): 
+        for i in range(playerN):
+            counter = 0
+            for p in playerName:
+                if(p != ""):
+                    counter = counter + 1
+            if(counter <= 1 or Round > 100):
+                DisplayGameOver()
+            if(current_Player == ""):
+                current_Player = playerOrder[i + 1]
+                continue
+            os.system("clear")
+            mes = ""
+            option = 0
+            doubles = False
+            # Handle in jail and retire
+            print("Current player:", current_Player)
+            if(inJail[playerName.index(current_Player)] == "True"):
+                if(jailCnt[playerOrder.index(current_Player)] == 3):
+                    while True:
+                        r = input("You must roll the dice! Enter 1: ")
+                        if(r == "1"):
+                            break
+                    res = diceRoll()
+                    time.sleep(1)
+                    if(doubles == True):
+                        inJail[playerName.index(current_Player)] = False
+                        jailCnt[playerOrder.index(current_Player)] = 0
+                        mes = current_Player + " is now FREE!"
+                        MovePlayer()
+                        EventHandler()
+                        DisplayGameScreen()
+                    else:
+                        Money[playerName.index(current_Player)] = Money[playerName.index(current_Player)] - 150
+                        inJail[playerName.index(current_Player)] = False
+                        jailCnt[playerOrder.index(current_Player)] = 0
+                        mes = current_Player + " pays $150 to get free..."
+                        MovePlayer()
+                        EventHandler()
+                        DisplayGameScreen()
+                else:
+                    while True:
+                        r = input("Enter 0 to pay the fine, 1 to roll a dice or 2 to save game: ")
+                        if(r == "0"):
+                            Money[playerName.index(current_Player)] = Money[playerName.index(current_Player)] - 150
+                            mes = current_Player + " pays 150 to get out and roll a dice"
+                            DisplayGameScreen()
+                            time.sleep(5)
+                            res = diceRoll()
+                            time.sleep(1)
+                            inJail[playerName.index(current_Player)] = False
+                            jailCnt[playerOrder.index(current_Player)] = 0
+                            MovePlayer()
+                            EventHandler()
+                            DisplayGameScreen()
+                            break
+                        elif(r == "1"):
+                            res = diceRoll()
+                            time.sleep(1)
+                            if(doubles == True):
+                                inJail[playerName.index(current_Player)] = False
+                                jailCnt[playerOrder.index(current_Player)] = 0
+                                MovePlayer()
+                                EventHandler()
+                                DisplayGameScreen()
+                            else:
+                                jailCnt[playerOrder.index(current_Player)] = jailCnt[playerOrder.index(current_Player)] + 1
+                                mes = current_Player + " stays in prison!"
+                                DisplayGameScreen()
+                            break
+                        elif(r == "2"):
+                            return SaveGame()
+            else:
+                while True:
+                    r = input("Enter 1 to roll a dice or 2 to save game: ")
+                    if(r == "1"):
+                        res = diceRoll()
+                        time.sleep(1)
+                        break
+                    elif(r == "2"):
+                        return SaveGame()
+                MovePlayer()
+                EventHandler()
+                DisplayGameScreen()
+            while True:
+                Proceed = input("")
+                if(option == 1 and Proceed == "1"):
+                    if(Money[playerName.index(current_Player)] < 0):
+                        retire()
+                    break
+                elif(option == 1 and Proceed == "2"):
+                    properties_possession[playerOrder.index(current_Player)].append(playerPosition[playerName.index(current_Player)])
+                    squares[playerPosition[playerName.index(current_Player)] - 1] = current_Player
+                    Money[playerName.index(current_Player)] = Money[playerName.index(current_Player)] - price[playerPosition[playerName.index(current_Player)] - 1]
+                    mes = "Successful transaction >>> LOADING...."
+                    DisplayGameScreen()
+                    time.sleep(5)
+                    if(Money[playerName.index(current_Player)] < 0):
+                        retire()
+                    break
+                elif(Proceed == "1"):
+                    if(Money[playerName.index(current_Player)] < 0):
+                        retire()
+                    break
+            if(i == playerN - 1):
+                    current_Player = playerOrder[0]
+            else:
+                current_Player = playerOrder[i + 1]
+            if(i == playerN - 1):
+                Round = Round + 1
+    if(counter <= 1 or Round > 100):
+        DisplayGameOver()
+    return
+
+def MovePlayer():
+    global current_Player, res, playerPosition, playerName, Money, Round
+    i = playerName.index(current_Player)
+    playerPosition[i] = playerPosition[i] + res
+    if(playerPosition[i] > 20):
+        playerPosition[i] = playerPosition[i] - 20
+        Money[i] = Money[i] + 1500
+    # print(playerPosition)
+    return
+
+def EventHandler():
+    global playerN, current_Player, playerName, playerOrder, playerPosition, Money, Round, inJail, properties_possession, mes, option
+    POS = playerPosition[playerName.index(current_Player)]
+    # Income Tax
+    if(POS == 4):
+        c = Money[playerName.index(current_Player)] // 10 // 10 * 10
+        #c = int(Money[playerName.index(current_Player)] * 0.1)
+        Money[playerName.index(current_Player)] = Money[playerName.index(current_Player)] - c
+        mes = "TAX: " + current_Player + " pays " + str(c) + " dollars..."
+        return
+    # Chance
+    elif(POS == 9 or POS == 13 or POS == 19):
+        c = chance()
+        if(c > 0):
+            mes = "CHANCE: " + current_Player + " earns " + str(abs(c)) + " dollars!"
+        elif(c < 0):
+            mes = "CHANCE: " + current_Player + " loses " + str(abs(c)) + " dollars..."
+        elif(c == 0):
+            mes = "CHANCE: " + current_Player + " gets" + " nothing..."
+        Money[playerName.index(current_Player)] = Money[playerName.index(current_Player)] + c
+        return
+    # Go to Jail
+    elif(POS == 16):
+        playerPosition[playerName.index(current_Player)] = 6
+        mes = "YOU'RE UNDER ARREST FOR BEING A FREE RIDER"
+        inJail[playerName.index(current_Player)] = "True"
+        return
+
+    # Check for Properties
+    elif(POS != 1 and POS != 6 and POS != 11):
+        global option
+        for i in range(len(properties_possession)):
+            if(playerPosition[playerName.index(current_Player)] in properties_possession[i]):
+                if(i == playerOrder.index(current_Player)):
+                    option = 0
+                    return
+                # Money deduction
+                Money[playerName.index(current_Player)] = Money[playerName.index(current_Player)] - rent[POS - 1]
+                # Money Addition
+                Money[playerName.index(squares[POS - 1])] = Money[playerName.index(squares[POS - 1])] + rent[POS - 1]
+                mes = current_Player + " pays " + str(rent[playerPosition[playerName.index(current_Player)] - 1]) + " dollars to " + squares[POS - 1]
+                option = 2
+                return
+        option = 1
+    return
+
+def SaveGame():
+    global playerN, current_Player, playerName, playerOrder, playerPosition, Money, Round, inJail, properties_possession, jailCnt, res, mes, option, squares, price, rent
+
+    with open('SavedGameSettings.txt', 'wb') as f:  # Python 3: open(..., 'wb')
+        pickle.dump([playerN, playerName, playerOrder, current_Player, playerPosition, Round, res, jailCnt,
+                     mes,option, Money, inJail, squares, properties_possession, price, rent], f)
+
+    loading()
+    print("Game Saved Successfully.\nSee you next time~\r\r")
+    return
+
+def LoadGame():
+    global playerN, current_Player, playerName, playerOrder, playerPosition, Money, Round, inJail, properties_possession, jailCnt, res, mes, option, squares,price, rent
+    if(os.path.isfile('./SavedGameSettings.txt') == False):
+        print("ERROR: No file found!!")
+        print("LOADING...")
+        time.sleep(3)
+        return welcome()
+    with open('SavedGameSettings.txt', 'rb') as f:
+        playerN, playerName, playerOrder, current_Player, playerPosition, Round, res, jailCnt, mes, option, Money, inJail, squares, properties_possession, price, rent = pickle.load(f)
+
+    print("Load Successful!")
+    time.sleep(3)
+    return StartGame()</pre></div>
+<a href="https://github.com/BanjiBear/Monopoly" target="_blank" style="color: grey;"><p>Open Source Code</p></a>
 
     <hr><h2>Development Team</h2>
     <a href="https://www.linkedin.com/in/yi-pu-chen-535040194" target="_blank" title="Tommy"><img src="banjibear.jpg" style="width:200px; height:200px; object-fit:cover; border-radius:50%; margin: 5px;"></a>
+    <a href="https://www.linkedin.com/in/azamat25" target="_blank" title="Azamat"><img src="Aza.jpg" style="width:200px; height:200px; object-fit:cover; border-radius:50%; margin: 5px;"></a>
+    <a href="https://www.linkedin.com/in/rakshit-jainn" target="_blank" title="Rakshit"><img src="Rakshit.jpg" style="width:200px; height:200px; object-fit:cover; border-radius:50%; margin: 5px;"></a>
+    <img src="nobody.jpg" style="width:200px; height:200px; object-fit:cover; border-radius:50%; margin: 5px;">
 
   </div>
 
