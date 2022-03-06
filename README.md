@@ -1,11 +1,11 @@
-#Mid Project  
+# Mid Project  
 Name: CHEN Yi pu  
 Student ID: 19084858d  
 
-#Website  
+# Website  
 Personal Website URL: [https://banjibear.github.io/](https://banjibear.github.io/)  
 
-#Read Me  
+# Read Me  
 The above URL is the link to the homepage. There are different pages in the website. Some important pages are:  
 - Homepage: The Homepage includes a **PHOTO of myself**, my **NAME**, some short **DESCRIPTION**, and links to other pages
 - About Me: The About Me page includes **images**, **introduction to myself** as well as links to other pages
@@ -13,7 +13,7 @@ The above URL is the link to the homepage. There are different pages in the webs
 - Projects: The Projects page includes different images that links to different project pages
 - Contact: The Contact page includes all of my Contact information
 
-#Other Information  
+# Other Information  
 - The website is **responsive**, that is, you are able to view it either on computers or phones
 - All pages include a title
 - All images have an alternative
