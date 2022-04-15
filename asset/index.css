@@ -1,0 +1,209 @@
+html,body {
+  /* The following allows the background to be responsive on mobile phones */
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+}
+::selection{
+  color:  white;
+  background-color: green;
+}
+
+.hero-image {
+  background-image: url("./images/yipu.jpg");
+  background-color: #bbb;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.button {
+  /* absolute position */
+  position: absolute;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+.button1 {
+  top: 45%;
+  left: -60%;
+  background-color: transparent; 
+  color: white; 
+  border: 2px solid transparent;
+}
+.button1:hover {
+  /* change color */
+  background-color: #e7e7e7;
+  color: white;
+  /* hover shadow */
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  opacity: 1;
+}
+.button1:active {
+  background-color: #4CAF50;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.button2 {
+  top: 68%;
+  left: -58%;
+  background-color: transparent; 
+  color: white; 
+  border: 2px solid transparent;
+}
+.button2:hover {
+  /* change color */
+  background-color: #e7e7e7;
+  color: white;
+  /* hover shadow */
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.button2:active {
+  background-color: #4CAF50;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.button3 {
+  top: 90%;
+  left: -53%;
+  background-color: transparent; 
+  color: white; 
+  border: 2px solid transparent;
+}
+.button3:hover {
+  /* change color */
+  background-color: #e7e7e7;
+  color: white;
+  /* hover shadow */
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.button3:active {
+  background-color: #4CAF50;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.button4 {
+  top: 110%;
+  left: -48%;
+  background-color: transparent; 
+  color: white; 
+  border: 2px solid transparent;
+}
+.button4:hover {
+  /* change color */
+  background-color: #e7e7e7;
+  color: white;
+  /* hover shadow */
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.button4:active {
+  background-color: #4CAF50;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.button5 {
+  top: 130%;
+  left: -40%;
+  background-color: transparent; 
+  color: white; 
+  border: 2px solid transparent;
+}
+.button5:hover {
+  /* change color */
+  background-color: #e7e7e7;
+  color: white;
+  /* hover shadow */
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.button5:active {
+  background-color: #4CAF50;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.button6 {
+  top: 150%;
+  left: -32%;
+  background-color: transparent; 
+  color: white; 
+  border: 2px solid transparent;
+  /* border-radius: 50%; */
+}
+.button6:hover {
+  /* change color */
+  background-color: #e7e7e7;
+  color: white;
+  /* hover shadow */
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.button6:active {
+  background-color: #4CAF50;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+@media only screen and (max-width: 620px) {
+  /* For mobile phones: */
+  .button {
+    opacity: 0.5;
+  }
+  .button1{
+    top: -20vw;
+    left: -30vw;
+    position: fixed;
+    width: 100%;
+  }
+  .button2{
+    top: -20vw;
+    left: 0vw;
+    position: fixed;
+    width: 100%;
+  }
+  .button3{
+    top: -20vw;
+    left: 30vw;
+    position: fixed;
+    width: 100%;
+  }
+  .button4{
+    top: 120vw;
+    left: -30vw;
+    position: fixed;
+    width: 100%;
+  }
+  .button5{
+    top: 120vw;
+    left: 0vw;
+    position: fixed;
+    width: 100%;
+  }
+  .button6{
+    top: 120vw;
+    left: 30vw;
+    position: fixed;
+    width: 100%;
+}
