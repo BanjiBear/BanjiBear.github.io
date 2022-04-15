@@ -2,7 +2,7 @@ body {
 	margin: 0;
 	background-attachment: fixed; /* html float fixed background */
 		
-	background-image: url("./images/beach.jpg");
+	background-image: url("../images/beach.jpg");
 	background-color: #bbb;
 	height: 800px;
 	background-position: center;

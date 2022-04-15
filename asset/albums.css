@@ -117,14 +117,14 @@ html, body{
   }
 
   .HongKongLife{
-    background-image: url("./Gallery/HongKongLife/xxx1.jpg");
+    background-image: url("../Gallery/HongKongLife/xxx1.jpg");
   }
   .Memories{
-    background-image: url("./Gallery/Aqua.jpg");
+    background-image: url("../Gallery/Aqua.jpg");
   }
   .FrindsandFam{
-    background-image: url("./Gallery/FrindsandFam.jpg");
+    background-image: url("../Gallery/FrindsandFam.jpg");
   }
   .Taiwan{
-    background-image: url("./Gallery/Taiwan.jpg");
+    background-image: url("../Gallery/Taiwan.jpg");
   }

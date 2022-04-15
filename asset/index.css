@@ -12,7 +12,7 @@ html,body {
 }
 
 .hero-image {
-  background-image: url("./images/yipu.jpg");
+  background-image: url("../images/yipu.jpg");
   background-color: #bbb;
   height: 100%;
   background-position: center;
