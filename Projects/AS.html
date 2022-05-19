@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Meta is the information that will not be shown on the screen -->
+  <!-- author: The name of the webpage -->
+  <meta name="author" content="Banjibear">
+  <!-- Refreshes the webpage every x seconds: 60 for the surrent case -->
+  <meta name="refresh" content="60">
+  <!-- Setting the viewport to make your website look good on all devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Projects - File System Simulator </title> <!-- Name or the tile shown on the tab -->
+  <style>
+
+  :root{
+    --purple: #cf91c9;
+    --yellow: #ffab42;
+    --blue: #4d80ad;
+    --red: #ff5261;
+    --green: #39b6b5;
+    --equal: #ff724c;
+    --comments: #9fa6b3;
+  }
+
+  body{
+    background-color: black;
+    color: ghostwhite;
+  }
+  ::selection{
+    color:  white;
+    background-color: green;
+  }
+  .icon {
+    /* Reference: https://stackoverflow.com/questions/53276676/icon-inside-button-not-centered-in-iphone */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+  }
+
+  /* The following are the Constant Settings/Styles in all pages */
+
+  /* Home button */
+  /* Using the same name in all Pages */
+  .b2{
+    position: absolute;
+    bottom: 25px;
+    right: 5px;
+    width: 50px;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: white; 
+    border: 2px solid transparent;
+  }
+  .b2:hover {
+    /* change color */
+    background-color: #e7e7e7;
+    color: white;
+    /* hover shadow */
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+  .b2:active {
+    background-color: #00000;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+  .bottomFooter{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
+
+  /* The sidebar */
+  .sidebar {
+    height: 100%; 
+    width: 0; 
+    position: fixed; 
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: black;
+    overflow-x: hidden; 
+    padding-top: 60px; 
+    transition: 0.5s; 
+  }
+  /* The sidebar links */
+  .sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: grey;
+    display: block;
+    transition: 0.3s;
+  }
+  .sidebar a:hover {
+    color: white;
+  }
+  .sidebar .closeButton {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  .openButton {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: transparent;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+  }
+  .openButton:hover {
+    background-color: #444;
+  }
+  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+  #main {
+    transition: margin-left .5s; /* If you want a transition effect */
+    padding: 20px;
+  }
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+  }
+
+  .content{
+    margin-left: 10vw;
+    margin-right: 10vw;
+    font-family: "Lucida Console", "Courier New", monospace;
+  }
+  .box{ max-width: 35vw;}
+  .box_align{ display: inline-flex;}
+  .box_align_margin{ margin-left: 10vw; }
+  .code{
+    width: 100%;
+    height: 50vh;
+    overflow:auto;
+    background-color: #2e3842;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  @media only screen and (max-width: 620px){
+    .content{
+      width: 100%;
+      margin: 0;
+    }
+    .box, .box_align{
+      max-width: 100%;
+      display: block;
+    }
+    .box_align_margin{
+      margin: 0;
+    }
+  }
+
+
+  </style>
+</head>
+<body>
+
+  <div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closeButton" onclick="closeNav()">&times;</a>
+    <a href="../AboutMe.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">About Me</b> </a>
+    <a href="https://drive.google.com/file/d/1sUz0Q3nxzcKmmvESOlINPyJkDoz2tYtR/view?usp=sharing" target="_blank"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Resume</b> </a>
+    <a href="../Projects.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand"><ion-icon name="terminal-outline"></ion-icon> Projects</b> </a>
+    <a href="../Albums.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Albums</b> </a>
+    <a href="" onclick="alert('Sorry! This pager is not available yet &#x1F625;');"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Foodie</b> </a>
+    <a href="../Contact.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Contact</b> </a>
+  </div>
+  <div id="main">
+    <div style="text-align:left">
+      <button class="openButton" onclick="openNav()">&#9776;</button>
+    </div>
+  </div>
+
+  <img src="../images/Projects/PDF.jpeg" style="width: 100%;">
+  
+  <div class="content">
+    <p style="color: grey;">Mobile Computing/Signal Processing/Android Application Development</p>
+    <h1>Device-Free Acoustic Sensing</h1>
+    <hr style="border: 3px solid white; border-radius: 10px;">
+
+    <div class="box_align">
+      <div class="box">
+        <h2>About</h2>
+        <p>This is a self-study on-going project which aims to implement the system proposed by [1]. PDF is a device-free acoustic sensing application that utilize the build-in microphones and speakers of a phone to sense surrounding objects.</p>
+        <p>The implementation of the client side targets the Android platform since IOS version can be found in the App Store on all IOS devices.</p>
+      </div>
+      <div class="box">
+        <h2 class="box_align_margin">Timeline</h2>
+        <p class="box_align_margin">December 2021 &#8722; Present</p>
+        <h2 class="box_align_margin">Note</h2>
+        <p class="box_align_margin">The project is <b>still in its development phase</b>, more information will be update periodically.</p>
+      </div>
+    </div>
+
+    <hr><h2>Acoustic Sensing</h2>
+    <p>The Acoustic Sensing application is built upon the Client-Server architecture. The Client side, which is the Android application is simply an App that utilizes the signal sent through the microphone and capture the reflected signal for further processing. On the other hand, the Server side, written in Matlab, is responsible for constructing the signal, passing it to the client side for sensing, receiving the reflected signal captured by the phone's speaker, and perform signal processing.</p>
+    <p>In terms of the communication between the phone and the server, the TCP/IP appraoch is utilized. There are various open source java WebSocket on GitHub, and even for Matlab Server.<br>As documented on Github, the MatlabWebSocket is a library built on the Java-WebSocket. It requires pre-defined java library in Matlab static class path. More information and the Latest Released Package can be found <a href="https://github.com/jebej/MatlabWebSocket" target="_blank" style="color: white;">here.</a><br>For the Web Socket on Android, as mentioned, the Java-WebSocket is a java implementation of the websocket protocol. The well-known org.java_websocket.server.WebSocketServer abstract class implements both the client and the server side, which the client side is extended in this project. The latest package of the Java-WebSocket can be found <a href="https://github.com/TooTallNate/Java-WebSocket" target="_blank" style="color: white;">here.</a></p>
+    <p>Another lightweight web socket targeting Android application is proposed <a href="https://github.com/gusavila92/java-android-websocket-client" target="_blank" style="color: white;">here.</a></p>
+    <p>The current implementation is for remote mode. To be more specific, it requires a seperate server for the aforementioned functions. One of the goal is to implement stand-alone mode in the future.</p>
+    
+    <hr><h2>Current Process/To-Do</h2>
+    <div class="box_align">
+      <div class="box">
+        <img src="AS.jpg" style="max-width: 100%; background-color: white;">
+      </div>
+      <div class="box">
+        <p class="box_align_margin">&#8594; Signal Configurations and Callback Implementations</p>
+        <p class="box_align_margin">&#8594; Microphone Selection and audio testing</p>
+        <p class="box_align_margin">&#8594; To be update&#46;&#46;&#46;&#46;</p>
+      </div>
+    </div>
+
+    <p></p>
+
+    <hr><h2>Development Team</h2>
+    <a href="https://www.linkedin.com/in/yi-pu-chen-535040194" target="_blank" title="Tommy"><img src="banjibear.jpg" style="width:200px; height:200px; object-fit:cover; border-radius:50%; margin: 5px;"></a>
+
+    <hr><h2>Reference</h2>
+    <p style="color: grey;">[1] H. Cheng and W. Lou, "Push the Limit of Device-Free Acoustic Sensing on Commercial Mobile Devices," IEEE INFOCOM 2021 - IEEE Conference on Computer Communications, 2021, pp. 1-10, doi: 10.1109/INFOCOM42981.2021.9488703.</p>
+
+  </div>
+
+
+
+  <div class="bottomFooter">
+    <button class="b2" style="font-size: 25px;" onclick="window.location.href='../index.html';"><i class="icon"><ion-icon name="person-outline"></ion-icon></i></button>
+  </div>  
+
+<script>
+
+  /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
+  function openNav() {
+    document.getElementById("mySidebar").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+  }
+
+  /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+  function closeNav() {
+    document.getElementById("mySidebar").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
+  }
+
+</script>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+</body>
+</html>
+
