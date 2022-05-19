@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Meta is the information that will not be shown on the screen -->
+  <!-- author: The name of the webpage -->
+  <meta name="author" content="Banjibear">
+  <!-- Refreshes the webpage every x seconds: 60 for the surrent case -->
+  <meta name="refresh" content="60">
+  <!-- Setting the viewport to make your website look good on all devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Projects - File System Simulator </title> <!-- Name or the tile shown on the tab -->
+  <style>
+
+  :root{
+    --purple: #cf91c9;
+    --yellow: #ffab42;
+    --blue: #4d80ad;
+    --red: #ff5261;
+    --green: #39b6b5;
+    --equal: #ff724c;
+    --comments: #9fa6b3;
+  }
+
+  body{
+    background-color: black;
+    color: ghostwhite;
+  }
+  ::selection{
+    color:  white;
+    background-color: green;
+  }
+  .icon {
+    /* Reference: https://stackoverflow.com/questions/53276676/icon-inside-button-not-centered-in-iphone */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+  }
+
+  /* The following are the Constant Settings/Styles in all pages */
+
+  /* Home button */
+  /* Using the same name in all Pages */
+  .b2{
+    position: absolute;
+    bottom: 25px;
+    right: 5px;
+    width: 50px;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: white; 
+    border: 2px solid transparent;
+  }
+  .b2:hover {
+    /* change color */
+    background-color: #e7e7e7;
+    color: white;
+    /* hover shadow */
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+  .b2:active {
+    background-color: #00000;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+  .bottomFooter{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
+
+  /* The sidebar */
+  .sidebar {
+    height: 100%; 
+    width: 0; 
+    position: fixed; 
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: black;
+    overflow-x: hidden; 
+    padding-top: 60px; 
+    transition: 0.5s; 
+  }
+  /* The sidebar links */
+  .sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: grey;
+    display: block;
+    transition: 0.3s;
+  }
+  .sidebar a:hover {
+    color: white;
+  }
+  .sidebar .closeButton {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  .openButton {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: transparent;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+  }
+  .openButton:hover {
+    background-color: #444;
+  }
+  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+  #main {
+    transition: margin-left .5s; /* If you want a transition effect */
+    padding: 20px;
+  }
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+  }
+
+  .content{
+    margin-left: 10vw;
+    margin-right: 10vw;
+    font-family: "Lucida Console", "Courier New", monospace;
+  }
+  .box{ max-width: 35vw;}
+  .box_align{ display: inline-flex;}
+  .box_align_margin{ margin-left: 10vw; }
+  .code{
+    width: 100%;
+    height: 50vh;
+    overflow:auto;
+    background-color: #2e3842;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  @media only screen and (max-width: 620px){
+    .content{
+      width: 100%;
+      margin: 0;
+    }
+    .box, .box_align{
+      max-width: 100%;
+      display: block;
+    }
+    .box_align_margin{
+      margin: 0;
+    }
+  }
+
+  details {
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    padding: .5em .5em 0;
+  }
+
+  summary {
+      margin: -.5em 0 0;
+      padding: .5em;
+  }
+
+  details[open] {
+      border: 0.15em solid var(--Orange);
+      box-shadow: inset 0 0 0.5em 0.25em var(--Orange), 0 0 0.5em 0.25em var(--Orange), inset 0 0 0.25em 0 #fff, 0 0 0.25em 0 #fff;
+      padding: .5em;
+  }
+
+  details[open] summary {
+      border-bottom: 1px solid #aaa;
+      margin-bottom: .5em;
+  }
+
+
+  </style>
+</head>
+<body>
+
+  <div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closeButton" onclick="closeNav()">&times;</a>
+    <a href="../AboutMe.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">About Me</b> </a>
+    <a href="https://drive.google.com/file/d/1sUz0Q3nxzcKmmvESOlINPyJkDoz2tYtR/view?usp=sharing" target="_blank"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Resume</b> </a>
+    <a href="../Projects.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand"><ion-icon name="terminal-outline"></ion-icon> Projects</b> </a>
+    <a href="../Albums.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Albums</b> </a>
+    <a href="" onclick="alert('Sorry! This pager is not available yet &#x1F625;');"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Foodie</b> </a>
+    <a href="../Contact.html"> <h1 style="color:ghostwhite; font: 15.0px Bradley Hand">Contact</b> </a>
+  </div>
+  <div id="main">
+    <div style="text-align:left">
+      <button class="openButton" onclick="openNav()">&#9776;</button>
+    </div>
+  </div>
+
+  <a href="https://art-overflow-3334.herokuapp.com/" target="_blank"><img src="artoverflow.png" style="width: 100%;"></a>
+  
+  <div class="content">
+    <p style="color: grey;">Computer Security/Python/Flask Framework/Full Stack Web Development</p>
+    <h1>Art Overflow</h1>
+    <hr style="border: 3px solid white; border-radius: 10px;">
+
+    <div class="box_align">
+      <div class="box">
+        <h2>About</h2>
+        <p>Blockchain technology has been a rising term and implementation in recent years. Rightfully so because it provides a dynamic decentralized data storage. One of the most well known implementations of this technology is NFT. This implementation has increased the security and ownership of internet property. Although we are not required to build a blockchain, we are tasked to replicate the NFT market system emphasizing on the ownership and security functionality in this project. But before that, we perform an analysis of basic computer system security and similar NFT systems in the market. Then designing the appropriate security measure with security concepts that they have learned inside and outside the class.</p>
+      </div>
+      <div class="box">
+        <h2 class="box_align_margin">Timeline</h2>
+        <p class="box_align_margin">February 2022 &#8722; April 2022</p>
+        <h2 class="box_align_margin">Note</h2>
+        <p class="box_align_margin"><b>The final implementation is deployed on herokuapp.</b> Please do not hesitate to take a look via <a href="https://art-overflow-3334.herokuapp.com/" target="_blank" style="color: grey;">the link.</a></p>
+      </div>
+    </div>
+
+    <hr><h2>Security Requirement Analysis</h2>
+    <details>
+      <summary>Click to see the full analysis paper</summary>
+      <h3 style="font-weight: normal;"><i>2.1 Introduction</i></h3>
+      <p>After years of skepticism and hesitancy, the online art markets and platforms are finally booming, whether or not utilizing the technology of blockchain. However, ever since the first platform was deployed, various attacks have been performed via different digital tools in the past decades. Doron Fagelson [1] states that, the combination of security flaws and hackers can result in catastrophic repercussions for any platform that does not comprehensively seal all of the vulnerabilities in their system. Before directly stating our security requirements, relevant research and discussions are done in order to consider the security requirements in an all-round way.</p>
+      <p>This chapter will start with the definition along with the characteristics of Crypto Art, with respect to security issues, are discussed in the first section. In the proceeding section, Doron Fagelson [1] and an article written in 2021 [2] gave an overview of security concerns regarding digital art platforms. Based on the general issues mentioned in section 2, Dipanjan Das et al. [3] analyzed security issues in the current NFT ecosystems from three aspects, which are the three components in the ecosystem, the market, the external entities, and the users. Although blockchain as well as NFT is not part of this project, we take into consideration some security requirements and mechanisms regarding online art platforms and online art transactions. Finally, we also refer to the security implementation of many art platforms, draw the parts we can use, and combine all the above discussions to list the security requirements that belong to us.</p>
+
+      <h3 style="font-weight: normal;"><i>2.2 The Characteristic of Crypto Art and Digital Artwork Platform</i></h3>
+      <p>Crypto art is a form of digital art work but supported by blockchain or other crypto systems [4]. Bsteh [5] indicates that crypto art can be deemed “limited-edition digital art” assigned a token relying on blockchain technology. Apart from the comments on blockchain as well as NFTs, Bsteh also points out both advantages and disadvantages of Crypto art. A high degree of transparency is a major focus, that is the ownership of a digital artwork is traceable. Moreover, since transactions are done via online channels, high speed performance is another benefit. On the other hand, during the investigation [5], it was also indicated that the server storing the artwork might suffer damage and private keys to users’ wallets might be lost. In terms of the advantages, tracking the ownership of the artwork is related to the Integrity aspect of the CIA model, while the performance of the system refers to the Availability aspect. As for the short-comings, they correspond to Availability and Confidentiality issues, respectively</p>
+      <p>Yet, the final implementation would rather be a simple digital artwork transaction and storage platform utilizing the database approach. Unlike the blockchain technique as well as the characteristics of NFTs, which data can be stored permanently without the concerns of being modified, it is vulnerable in terms of the system to store and process data using a database approach. Hence, instead of high transparency and traceable ownership, the implementation should focus more on hiding the configurations of the system, hiding all information, and encrypt or hash critical data. However, the system should still satisfy user and action authentication, high speed performance, and the availability of the system as a whole.</p>
+
+      <h3 style="font-weight: normal;"><i>2.3 General Security Concerns of Online Art Platform</i></h3>
+      <p>As online galleries, marketplace, auctioneers, and art management solutions have started to gain popularity in recent years, skepticism and hesitancy rises along with the move, due to the fact that art platforms are constantly under cyberattack. <br>Doron Fagelson [1] proposed a three-step approach, in general, for engineers and platform owners to make online art markets safer and more resilient with cybersecurity. The approach mainly focuses on the angle of Confidentiality. Doron found it critical to determine the sensitive data that could cause disastrous outcomes if compromised. Data including names, phone numbers, email addresses, payment details and so on are considered sensitive. In addition, the name of pieces in an individual's collection, and transaction details, such as, previous ownership of an artwork and the waiting list of purchase, should also be protected. Experts from an article further suggested that platforms should not only encrypt the internet traffic but also hide users’ IP addresses.</p>
+      <p>Besides, since threats are assumed associated with scams and phishing messages, authentication becomes the priority when interacting with other entities. Users should always double check the source of the information and the identity of the interactors.<br>The above overview only provides discussion from limited aspects regarding security requirements, thus, a deeper evaluation will be conducted in the following section.</p>
+
+      <h3 style="font-weight: normal;"><i>2.4 A deeper analysis – Security issues in the digital art ecosystem</i></h3>
+      <p>After general analysis of security issues, we then focus on not only a deeper look into security requirements but also well known cyber attacks that occured in the past.</p>
+      <p>Combined with the analysis in the previous section, the most intuitive thing for an art trading platform is the protection and encryption of data. This study [3] points to a different point of view than general system security. Experts believe that in addition to protecting and encrypting user and asset data, protection measures should also be implemented for events. This statement is part of the conclusions drawn from research on past security attacks. The events refers to the transaction records, the buyer as well as the seller’s identity, the artwork being transacted, and the price of the transaction.</p>
+      <p>However, even if user information is encrypted, there have been precedents of unauthorized access logging into people's accounts stealing or downloading private keys in the past. Therefore, we have made two important decisions. Indeed, the data should be protected either by encryption or hashing, among either encrypting information with asymmetric cipher or hash data with a chosen algorithm, we chose to implement the latter. The first reason is that with hashing, not only does it not need to perform additional encryption protection on the key, even if there is a system breach, there is no need to worry about the leakage of the key. On the other hand, the second decision is to not store critical data. The reasons are similar to prevent information leak and to remove the concerns when a system breached. Critical data are considered including user name, user password, user account balance, artwork collection, artwork creation, artwork ownership, transaction detail, and transaction history. With the usage of hashing, we can simply compare users’ information with the input or the processing results.</p>
+      <p>There are many attacks targeting not data theft but identity fraud, data falsification, or fake art paintings. Namely, impersonate famous artists and sell fake artworks, false seller and buyer identity, identical username, similar artwork, and copycat, just to name a few. For the requirements for Art Overflow, we managed to prevent the problems by implementing mechanisms aiming each of the attacks related to our system design, while at the same time, keeping track of the usability of the platform.<br>From the user account perspective, usernames are limited to be completely unique among all records. The password mechanism not only authenticates user identity but also ensures the password to be similar to pseudo-randomly generated sequence, that is, it must contain digits, both uppercase and lowercase letters, and symbols. From an artwork perspective, all actions regarding transactions or artwork creation requires users entering passwords. All transactions as well as ownership history of an artwork can be viewed in order to verify the artwork and the seller’s identity.</p>
+      <p>The research concluded with suggestions regarding blockchain and digital art platforms. We have also taken measures related to Art Overflow. This allows us to consider the possible system vulnerabilities of the platform more comprehensively.</p>
+
+      <h3 style="font-weight: normal;"><i>2.5 Analysis of existing artwork platform</i></h3>
+      <p>In addition to studying the analysis of different systems and attacks by different experts, we also refer to security measures implemented by actual art platforms as examples. artAttendant [6], an online cloud-based artwork platform, provides personal artwork collection, storage, showcase, and exhibition management. Though not mentioned much in the documentation released, this is also one consideration regarding Confidentiality for not disclosing system details, artAttendant emphasizes on secure server, secure channel, and secure personal data. It is also recommended to not store Credit Card info, which corresponds to the aforementioned analysis to not store critical information. Furthermore, platforms should also always make use of the latest technology database and continuously implement server monitoring.</p>
+
+      <h3 style="font-weight: normal;"><i>2.6 Security Requirements for Art Overflow</i></h3>
+      <p>In summary, according to the discussion above, we combined the characteristics of digital artwork in section 2.2 with general concerns in 2.3, deeper analysis in 2.4, and example in 2.5. Finally, come up with our own security requirements as listed in the following section.</p>
+    </details>
+
+    <hr><h2>Security Requirements</h2>
+    <p>Based on the analysis above, using the C.I.A. model, the requirements of the system are listed as below:</p>
+    <h2 style="font-weight: normal;"><i>Confidentiality</i></h2>
+    <ul>
+      <li>All information should be protected by hashing with selected algorithm, including <i>names, password, email addresses, artwork name, artwork ownership, artwork creator</i>, and <i>events</i></li>
+      <li>Critical information should not be stored in the database, that is, <i>password</i></li>
+      <li>Password for user account should be complicated enough in order to prevent statistical analysis</li>
+      <li>The platform should check for the simplicity of password when registering an account, suggest for strong password when the password is too simple</li>
+      <li>Set password for the database to prevent unauthorized access. We trust the SQLite database is able to hide its configuration, IP, and secure against attacks</li>
+      <li>We also trust the server, flask framework, to be secure against attacks</li>
+    </ul>
+    <h2 style="font-weight: normal;"><i>Integrity</i></h2>
+    <ul>
+      <li>User identity should be verify using password mechanism when logging in and registration</li>
+      <li>Mechanisms should be implemented to prevent spam bots from logging in or creating an account, e.g. reCaptcha</li>
+      <li>User names should be completely unique in order to prevent false identity fraud</li>
+      <li>Only authorized users are able to request the forgotten password token and change their passwords</li>
+      <li>Adopt mechanisms for user authentication when user requests for reset(changing) password</li>
+      <li>Creating(uploading) and transacting artwork should require a user password to verify user identity and prevent impersonation of seller or buyer</li>
+      <li>Transaction history and ownership history should be displayed as a means of artwork authentication</li>
+    </ul>
+    <h2 style="font-weight: normal;"><i>Availability</i></h2>
+    <ul>
+      <li>Protection against spambots</li>
+      <li>Critical information should not be stored in the database, that is, <i>password</i></li>
+      <li>Server is deployed onto a website so it will be available anytime</li>
+      <li>We trust the hosting public server to be always available</li>
+    </ul>
+    
+    
+    <hr><h2>System Design Specification</h2>
+    <div class="box_align">
+      <div class="box">
+        <img src="artoverflowDB.png" style="max-width: 100%; background-color: white;">
+      </div>
+      <div class="box">
+        <p class="box_align_margin">With the requirements above, our system uses a database approach to store relevant information. There are three main tables specified in the database such as the following:<br>1. User<br>2. Art<br>3. Transaction</p>
+        <p class="box_align_margin">The relationship between each table is shown in the figure</p>
+        <p class="box_align_margin">Images are stored as text in the database by using the base64 library in the "img" column. The "password" column in the "user" table contains a hashed password using "bcrypt" library. "bcrypt" uses the blowfish cipher to hash the password so that the data stored is not a plaintext.</p>
+      </div>
+    </div>
+    <p>First time users can register a new account by going to the ‘register’ page and they will be asked to enter a unique username, email, and a strong password. Strong password in this system consists of several requirements listed below:</p>
+    <ul>
+      <li>minimum length of 8 characters</li>
+      <li>password must have 1 digit or more</li>
+      <li>password must have 1 symbol or more</li>
+      <li>password must have 1 uppercase letter or more</li>
+      <li>password must have 1 lowercase letter or more</li>
+    </ul>
+    <img src="artLogin.png" style="width: 100%;">
+    <p>After inputting their credentials, the user must complete a captcha security test. This web application uses captcha in order to prevent bot spamming and brute-force attacks to find the password of the user.</p>
+    <p>In the event of forgetting a password, the user can request to reset their password by entering their corresponding email for their account. After doing so, the user can open their email to check for an email to reset their password. The link is generated randomly so that only the user can reset their password. After inputting their new password, the ‘password’ column in the ‘user’ table will be updated with the new hashed password</p>
+    <p>The "flask_mail" library is used to send the user a link to reset their forgotten password. One of the disadvantages of using this library is that it can only send to email accounts that have disabled 2 factor-authentication and enabled access from less secure apps. With that in mind, it comes down to whether the user trusts in the web application our group has programmed.</p>
+    <p>Purchasing and uploading art requires the user to input their password before they can do so to make sure the identity of the user. <br>The web application is able to track the owner and creator of the art while also keeping track of past transactions, allowing other users to know the price changes of a certain art.</p>
+    <img src="artTransaction.png" style="width: 100%;">
+
+    <hr><h2>Development Team</h2>
+    <a href="https://www.linkedin.com/in/yi-pu-chen-535040194" target="_blank" title="Tommy"><img src="banjibear.jpg" style="width:200px; height:200px; object-fit:cover; border-radius:50%; margin: 5px;"></a>
+    <a href="https://www.linkedin.com/in/azamat25" target="_blank" title="Azamat"><img src="Aza.jpg" style="width:200px; height:200px; object-fit:cover; border-radius:50%; margin: 5px;"></a>
+    <a href="https://github.com/nicb112" target="_blank" title="Nicholas"><img src="nicho.jpg" style="width:200px; height:200px; object-fit:cover; border-radius:50%; margin: 5px;"></a>
+    <a href="https://mikecoa.github.io/" target="_blank" title="Michael"><img src="michael.jpg" style="width:200px; height:200px; object-fit:cover; border-radius:50%; margin: 5px;"></a>
+    <a href="https://github.com/nelsenhadi" target="_blank" title="Nelsen"><img src="nelsen.jpg" style="width:200px; height:200px; object-fit:cover; border-radius:50%; margin: 5px;"></a>
+
+    <hr><h2>Reference</h2>
+    <p style="color: grey;">[1] Making online art platforms safer and more resilient with cybersecurity. [Online]. Available: https://www.dataart.com/blog/making-online-art-platforms-safer-and-more-resilient-with-cybersecurity.</p>
+    <p style="color: grey;">[2] Hacken, “NFT security and safety - are nfts safe,” Hacken, 05-Apr-2022. [Online]. Available: https://hacken.io/researches-and-investigations/are-nfts-safe-how-to-ensure-security-of-your-nfts/. </p>
+    <p style="color: grey;">[3] Das, Bose, P., Ruaro, N., Kruegel, C., & Vigna, G. (2021). Understanding Security Issues in the NFT Ecosystem.</p>
+    <p style="color: grey;">[4] "What is crypto art and how does it work?," Eden Gallery. [Online]. Available: https://www.eden-gallery.com/news/what-is-crypto-art. </p>
+    <p style="color: grey;">[5] Bsteh, S., & Vermeylen, P. D. F. (2021). From Painting to Pixel: Understanding NFT Artworks. Rotterdam: Universidad Erasmo. Disponible en formato digital aquí.</p>
+    <p style="color: grey;">[6] “Privacy of art online - artattendant private cloud-based Art Archive Platform,” artAttendant, 03-May-2018. [Online]. Available: https://artattendant.com/about/privacy-and-security/.</p>
+
+  </div>
+
+
+
+  <div class="bottomFooter">
+    <button class="b2" style="font-size: 25px;" onclick="window.location.href='../index.html';"><i class="icon"><ion-icon name="person-outline"></ion-icon></i></button>
+  </div>  
+
+<script>
+
+  /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
+  function openNav() {
+    document.getElementById("mySidebar").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+  }
+
+  /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+  function closeNav() {
+    document.getElementById("mySidebar").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
+  }
+
+</script>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+</body>
+</html>
+
